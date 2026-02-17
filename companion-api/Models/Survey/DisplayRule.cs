@@ -1,6 +1,6 @@
 public class DisplayRule
 {
-    public int id { get; set; }
-    public required SubQuestion subQuestion { get; set; }
-    public required string requiredValue { get; set; }
+    public int Id { get; set; }
+    public required SubQuestion SubQuestion { get; set; }
+    public required string RequiredValue { get; set; }
 }

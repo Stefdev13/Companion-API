@@ -1,8 +1,8 @@
 public class StandardQuestionOption : QuestionOption
 {
-    public required List<SubQuestion> subQuestions { get; set; } = [];
-    public ReusableQuestionOption? reusableQuestionOption { get; set; }
-    public bool usedInOtherSurveyQuestions { get; set; }
-    public bool cloneOfOtherQuestionOption { get; set; }
-    public bool shouldInfluenceOriginalQuestionOption { get; set; }
+    public required List<SubQuestion> SubQuestions { get; set; } = [];
+    public ReusableQuestionOption? ReusableQuestionOption { get; set; }
+    public bool UsedInOtherSurveyQuestions { get; set; }
+    public bool CloneOfOtherQuestionOption { get; set; }
+    public bool ShouldInfluenceOriginalQuestionOption { get; set; }
 }

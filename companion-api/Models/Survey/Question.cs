@@ -1,14 +1,14 @@
 public class Question
 {
-    public int id { get; set; }
-    public required string question { get; set; }
-    public required string description { get; set; }
-    public required List<string> tips { get; set; }
-    public required List<QuestionOption> questionOptions { get; set; } = [];
-    public QuestionOption? optionTemplate { get; set; }
-    public bool allowCustomOptions { get; set; } = false;
-    public string newCustomOptionPrompt { get; set; } = "";
-    public bool allowReusableQuestionOptions { get; set; } = false;
-    public required List<string> reusableQuestionOptionsTags { get; set; }
-    public List<string>? dynamicQuestionOptionParams { get; set; }
+    public int Id { get; set; }
+    public required string QuestionName { get; set; }
+    public required string Description { get; set; }
+    public required List<string> Tips { get; set; }
+    public required List<QuestionOption> QuestionOptions { get; set; } = [];
+    public QuestionOption? OptionTemplate { get; set; }
+    public bool AllowCustomOptions { get; set; } = false;
+    public string NewCustomOptionPrompt { get; set; } = "";
+    public bool AllowReusableQuestionOptions { get; set; } = false;
+    public required List<string> ReusableQuestionOptionsTags { get; set; }
+    public List<string>? DynamicQuestionOptionParams { get; set; }
 }

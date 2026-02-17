@@ -1,8 +1,8 @@
 public class QuestionOption
 {
-    public int id { get; set; }
-    public required string name { get; set; }
-    public bool isSelected { get; set; }
-    public required List<SubQuestion> displaySubQuestions { get; set; } = [];
-    public required List<string> tags { get; set; }
+    public int Id { get; set; }
+    public required string Name { get; set; }
+    public bool IsSelected { get; set; }
+    public required List<SubQuestion> DisplaySubQuestions { get; set; } = [];
+    public required List<string> Tags { get; set; }
 }

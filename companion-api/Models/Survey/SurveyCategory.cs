@@ -1,7 +1,7 @@
 public class SurveyCategory
 {
-    public int id { get; set; }
-    public required string categoryName { get; set; }
-    public required string description { get; set; }
-    public required List<Question> questions { get; set; } = [];
+    public int Id { get; set; }
+    public required string CategoryName { get; set; }
+    public required string Description { get; set; }
+    public required List<Question> Questions { get; set; } = [];
 }
