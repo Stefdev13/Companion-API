@@ -1,6 +1,6 @@
 public class Question
 {
-    public int Id { get; set; }
+    public int? Id { get; set; }
     public required string QuestionName { get; set; }
     public required string Description { get; set; }
     public required List<string> Tips { get; set; }
