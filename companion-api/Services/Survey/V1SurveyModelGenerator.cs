@@ -18,7 +18,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
         return result;
     }
 
-    //SECTION - Mobility
+    //ANCHOR[epic=Mobility]
     public void CreateAndAddMobilitySurveyCategory(SurveyModel surveyModel)
     {
         SurveyCategory mobility = new SurveyCategory()
@@ -28,7 +28,21 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             Questions = []
         };
 
-        //SECTION - Cars question
+        mobility.Questions.Add(CreateCarQuestion());
+        mobility.Questions.Add(CreateMotorbikeQuestion());
+        mobility.Questions.Add(CreateBikesQuestion());
+        mobility.Questions.Add(CreateTaxiQuestion());
+        mobility.Questions.Add(CreateBusQuestion());
+        mobility.Questions.Add(CreateTramSubwayQuestion());
+        mobility.Questions.Add(CreateRailQuestion());
+        mobility.Questions.Add(CreateRailQuestion());
+
+        //Add mobility SurveyCategory to surveyModel
+        surveyModel.SurveyCategories.Add(mobility);
+    }
+
+    public Question CreateCarQuestion()
+    {
         Question carQuestion = new Question()
         {
             QuestionName = "What car(s) do you drive?",
@@ -216,27 +230,45 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
         };
         carQuestionOptiontemplate.DisplaySubQuestions.Add(carChargeSource);
 
-        mobility.Questions.Add(carQuestion);
-
-        //SECTION - Motorbikes question
-
-        //SECTION - Bikes & E-bikes question
-
-        //SECTION - Taxi's and Rideshare question
-
-        //SECTION - Bus question
-
-        //SECTION - Tram and subway question
-
-        //SECTION - Rail question
-
-        //SECTION - Frequent Journey question
-        //TODO: Figure out how to do this one
-
-        //Add mobility SurveyCategory to surveyModel
-        surveyModel.SurveyCategories.Add(mobility);
+        return carQuestion;
     }
 
+    public Question CreateMotorbikeQuestion()
+    {
+
+    }
+
+    public Question CreateBikesQuestion()
+    {
+
+    }
+
+    public Question CreateTaxiQuestion()
+    {
+
+    }
+
+    public Question CreateBusQuestion()
+    {
+
+    }
+
+    public Question CreateTramSubwayQuestion()
+    {
+
+    }
+
+    public Question CreateRailQuestion()
+    {
+
+    }
+
+    public Question CreateFJQuestion()
+    {
+        //TODO: Figure out how to do this one
+    }
+
+    //ANCHOR[epic=Travel]
     public void CreateAndAddTravelSurveyCategory(SurveyModel surveyModel)
     {
         //TODO: Create SurveyCategory
@@ -248,6 +280,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
         //TODO: Add Travel SurveyCategory to surveyModel
     }
 
+    //ANCHOR[epic=Home]
     public void CreateAndAddHomeSurveyCategory(SurveyModel surveyModel)
     {
         //TODO: Create SurveyCategory
@@ -259,6 +292,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
         //TODO: Add Home SurveyCategory to surveyModel
     }
 
+    //ANCHOR[epic=Food]
     public void CreateAndAddFoodSurveyCategory(SurveyModel surveyModel)
     {
         //TODO: Create SurveyCategory
@@ -270,6 +304,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
         //TODO: Add Food SurveyCategory to surveyModel
     }
 
+    //ANCHOR[epic=Purchasing habits] - purchasing
     public void CreateAndAddPurchasingtySurveyCategory(SurveyModel surveyModel)
     {
         //TODO: Create SurveyCategory
