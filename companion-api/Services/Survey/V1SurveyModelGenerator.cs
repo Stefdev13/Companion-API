@@ -77,7 +77,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             DefaultMetricUnit = "km",
             DefaultImperialUnit = "mi",
             Answer = "",
-            SubQuestionKey = "car-usage",
+            SubQuestionKey = V1SubQuestionKeys.mobility_annual_usage,
         };
         carQuestionOptiontemplate.DisplaySubQuestions.Add(carUsage);
 
@@ -88,7 +88,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             QuestionType = QuestionType.toggle,
             AnswerOptions = ["First hand", "Second hand"],
             Answer = "",
-            SubQuestionKey = "first-or-second-hand",
+            SubQuestionKey = V1SubQuestionKeys.mobility_first_or_second_hand,
         };
         carQuestionOptiontemplate.DisplaySubQuestions.Add(firstSecondHand);
 
@@ -108,7 +108,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             DefaultImperialUnit = "years",
             Answer = "",
             DisplayRules = [firstHandCarDisplayRule],
-            SubQuestionKey = "car-ownership",
+            SubQuestionKey = V1SubQuestionKeys.mobility_years_of_ownership,
         };
         carQuestionOptiontemplate.DisplaySubQuestions.Add(carOwnership);
 
@@ -119,7 +119,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             QuestionType = QuestionType.select,
             AnswerOptions = ["Petrol", "Diesel", "Hybrid", "Plug-in hybrid", "Electric"],
             Answer = "",
-            SubQuestionKey = "car-type",
+            SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_fuel,
         };
         carQuestionOptiontemplate.DisplaySubQuestions.Add(carType);
 
@@ -130,7 +130,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             QuestionType = QuestionType.select,
             AnswerOptions = ["Small", "Medium", "Large"],
             Answer = "",
-            SubQuestionKey = "car-size",
+            SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_size,
         };
         carQuestionOptiontemplate.DisplaySubQuestions.Add(carSize);
 
@@ -141,7 +141,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             QuestionType = QuestionType.toggle,
             AnswerOptions = ["Personal", "Manufacturer"],
             Answer = "",
-            SubQuestionKey = "consumption-or-manufacturer",
+            SubQuestionKey = V1SubQuestionKeys.mobility_consumption_or_manufacturer,
         };
         carQuestionOptiontemplate.DisplaySubQuestions.Add(usageOrManufacturerRatings);
 
@@ -161,7 +161,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             DefaultImperialUnit = "co2e/mi",
             Answer = "",
             DisplayRules = [manufacturersRatingsDisplayRule],
-            SubQuestionKey = "emissions-figure",
+            SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_co2e_rating,
         };
         carQuestionOptiontemplate.DisplaySubQuestions.Add(carEmissionsFigure);
 
@@ -181,7 +181,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             DefaultImperialUnit = "mi/gallon",
             Answer = "",
             DisplayRules = [personalUsageDisplayRule],
-            SubQuestionKey = "fuel-consumption",
+            SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_fuel_consumption,
         };
         carQuestionOptiontemplate.DisplaySubQuestions.Add(carFuelConsumption);
 
@@ -195,7 +195,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             DefaultImperialUnit = "mi/kWh",
             Answer = "",
             DisplayRules = [personalUsageDisplayRule],
-            SubQuestionKey = "kwh-consumption",
+            SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_kwh_consumption,
         };
         carQuestionOptiontemplate.DisplaySubQuestions.Add(carKWhConsumption);
 
@@ -215,7 +215,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             DefaultImperialUnit = "mi/kWh",
             Answer = "",
             DisplayRules = [electricOrPHEVDisplayRule],
-            SubQuestionKey = "battery-size",
+            SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_battery_size,
         };
         carQuestionOptiontemplate.DisplaySubQuestions.Add(carBatterySize);
 
@@ -226,7 +226,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             QuestionType = QuestionType.percentage,
             Answer = "",
             DisplayRules = [electricOrPHEVDisplayRule],
-            SubQuestionKey = "kwh-consumption",
+            SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_charging_source,
         };
         carQuestionOptiontemplate.DisplaySubQuestions.Add(carChargeSource);
 

@@ -10,6 +10,7 @@ public class SubQuestion
     public string? SelectedUnit { get; set; }
     public string? DefaultMetricUnit { get; set; }
     public string? DefaultImperialUnit { get; set; }
+    public string? AverageValueRoute { get; set; }
     public List<SubQuestion>? AverageValueParams { get; set; }
     public List<DisplayRule>? DisplayRules { get; set; }
     public bool MarkedForCheckingWithClones { get; set; } = false;

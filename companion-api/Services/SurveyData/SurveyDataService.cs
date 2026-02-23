@@ -15,8 +15,8 @@ public class SurveyDataService
         }
     }
 
-    public Dictionary<string, object> getSurveyDataPoint(string route, string subQuestionKey, string dynamicParams)
+    public Dictionary<string, object> getSurveyDataPoint(string route, string subQuestionKey, string dynamicParams, string country, string? region)
     {
-        return _surveyDataDictionary.getSurveyDataPoint(route, subQuestionKey, dynamicParams);
+        return _surveyDataDictionary.getSurveyDataPoint(route, subQuestionKey, dynamicParams, country, region);
     }
 }
