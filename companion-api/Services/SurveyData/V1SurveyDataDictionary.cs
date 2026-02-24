@@ -12,4 +12,9 @@ public class V1SurveyDataDictionary : ISurveyDataDictionary
     {
         throw new NotImplementedException();
     }
+
+    public List<QuestionOption> generateDynamicQuestionOptions(List<string> dynamicParams, string country, string? region)
+    {
+        throw new NotImplementedException();
+    }
 }
