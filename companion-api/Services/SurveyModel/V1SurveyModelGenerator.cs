@@ -641,17 +641,53 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question CreateBusQuestion()
     {
+        Question busQuestion = new Question()
+        {
+            QuestionName = "How much do you ride on the bus per year?",
+            Description = "In kilometers or miles.",
+            Tips = [],
+            QuestionOptions = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            ReusableQuestionOptionsTags = ["mobility", "bus"],
+            DynamicQuestionOptionParams = ["mobility", "bus"],
+        };
 
+        return busQuestion;
     }
 
     public Question CreateTramSubwayQuestion()
     {
+        Question lightRailQuestion = new Question()
+        {
+            QuestionName = "How much do you ride on trams and subways per year?",
+            Description = "In kilometers or miles.",
+            Tips = [],
+            QuestionOptions = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            ReusableQuestionOptionsTags = ["mobility", "light-rail"],
+            DynamicQuestionOptionParams = ["mobility", "light-rail"],
+        };
 
+        return lightRailQuestion;
     }
 
     public Question CreateRailQuestion()
     {
+        Question railQuestion = new Question()
+        {
+            QuestionName = "How much do you ride on the trains per year?",
+            Description = "In kilometers or miles.",
+            Tips = [],
+            QuestionOptions = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            ReusableQuestionOptionsTags = ["mobility", "rail"],
+            DynamicQuestionOptionParams = ["mobility", "rail"],
+        };
 
+        return railQuestion;
     }
 
     public Question CreateFJQuestion()
