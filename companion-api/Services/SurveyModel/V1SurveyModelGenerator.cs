@@ -692,7 +692,71 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question CreateFJQuestion()
     {
-        //TODO: Figure out how to do this one
+        Question frequentJourneyQuestion = new Question()
+        {
+            QuestionName = "Do you have any journeys you frequently do?",
+            Description = "Commuting to work for example. Adding frequent jouneys can make it much easier to implement and follow reductions",
+            Tips = [],
+            QuestionOptions = [],
+            AllowCustomOptions = true,
+            NewCustomOptionPrompt = "Add a frequent journey",
+            AllowReusableQuestionOptions = false,
+            ReusableQuestionOptionsTags = ["mobility", "frequent-journey"],
+            DynamicQuestionOptionParams = ["mobility", "frequent-journey"],
+        };
+
+        SubQuestion roundTripSubQuestion = new SubQuestion()
+        {
+            Question = "Is this a round-trip?",
+            Description = "Selecting round-trip will add the same legs in reverse order at the end of the journey",
+            QuestionType = QuestionType.toggle,
+            AnswerOptions = ["One-way", "Round-trip"],
+            Answer = "",
+            SubQuestionKey = V1SubQuestionKeys.mobility_fj_round_trip,
+        };
+
+        SubQuestion frequencySubQuestion = new SubQuestion()
+        {
+            Question = "How often do you make this journey?",
+            Description = "",
+            QuestionType = QuestionType.frequency,
+            Answer = "",
+            SubQuestionKey = V1SubQuestionKeys.mobility_fj_frequency,
+        };
+
+        SubQuestion startDateSubQuestion = new SubQuestion()
+        {
+            Question = "Starts on",
+            Description = "",
+            QuestionType = QuestionType.date,
+            Answer = "",
+            SubQuestionKey = V1SubQuestionKeys.mobility_fj_start_date,
+        };
+
+        SubQuestion endDateSubQuestion = new SubQuestion()
+        {
+            Question = "Ends on",
+            Description = "",
+            QuestionType = QuestionType.date,
+            Answer = "",
+            SubQuestionKey = V1SubQuestionKeys.mobility_fj_end_date,
+        };
+
+        FJQuestionOption frequentJourneyQuestionOptionTemplate = new FJQuestionOption()
+        {
+            Name = "",
+            IsSelected = true,
+            DisplaySubQuestions = [],
+            Tags = ["mobility", "frequent-journey"],
+            RoundTripSubQuestion = roundTripSubQuestion,
+            FrequencySubQuestion = frequencySubQuestion,
+            StartDateSubQuestion = startDateSubQuestion,
+            EndDateSubQuestion = endDateSubQuestion,
+            Legs = [],
+        };
+        frequentJourneyQuestion.OptionTemplate = frequentJourneyQuestionOptionTemplate;
+
+        return frequentJourneyQuestion;
     }
 
     //ANCHOR[epic=Travel]
