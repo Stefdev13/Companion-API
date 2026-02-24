@@ -252,7 +252,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question CreateMotorbikeQuestion()
     {
-
         Question motorbikeQuestion = new Question()
         {
             QuestionName = "What motorbike(s) do you ride?",
@@ -429,7 +428,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
         SubQuestion motorbikeBatterySize = new SubQuestion()
         {
             Question = "Battery size",
-            Description = "How big is the battery in your motorbik? In kWh",
+            Description = "How big is the battery in your motorbike? In kWh",
             QuestionType = QuestionType.doubleInputOrAvg,
             UnitOptions = ["kWh"],
             DefaultMetricUnit = "kWh",
@@ -456,7 +455,120 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question CreateBikesQuestion()
     {
+        Question bikeQuestion = new Question()
+        {
+            QuestionName = "What bike(s) and e-bike(s) do you ride?",
+            Description = "Please add all the (e-)bikes that you use to get to places.",
+            Tips = [],
+            QuestionOptions = [],
+            AllowCustomOptions = true,
+            NewCustomOptionPrompt = "Add a (e-)bike",
+            AllowReusableQuestionOptions = false,
+            ReusableQuestionOptionsTags = ["mobility", "bikes"],
+        };
 
+        StandardQuestionOption bikeQuestionOptionTemplate = new StandardQuestionOption()
+        {
+            Name = "",
+            IsSelected = true,
+            DisplaySubQuestions = [],
+            Tags = ["mobility", "bikes"],
+            SubQuestions = [],
+            UsedInOtherSurveyQuestions = true,
+            CloneOfOtherQuestionOption = false,
+            ShouldInfluenceOriginalQuestionOption = false,
+        };
+        bikeQuestion.OptionTemplate = bikeQuestionOptionTemplate;
+
+        SubQuestion bikeUsage = new SubQuestion()
+        {
+            Question = "How much do you cycle per year?",
+            Description = "In kilometers or miles",
+            QuestionType = QuestionType.intInput,
+            UnitOptions = ["km", "mi"],
+            DefaultMetricUnit = "km",
+            DefaultImperialUnit = "mi",
+            Answer = "",
+            SubQuestionKey = V1SubQuestionKeys.mobility_annual_usage,
+        };
+        bikeQuestionOptionTemplate.DisplaySubQuestions.Add(bikeUsage);
+        bikeQuestionOptionTemplate.SubQuestions.Add(bikeUsage);
+
+        SubQuestion firstSecondHand = new SubQuestion()
+        {
+            Question = "Is the (e-)bike first or second hand?",
+            Description = "",
+            QuestionType = QuestionType.toggle,
+            AnswerOptions = ["First hand", "Second hand"],
+            Answer = "",
+            SubQuestionKey = V1SubQuestionKeys.mobility_first_or_second_hand,
+        };
+        bikeQuestionOptionTemplate.SubQuestions.Add(firstSecondHand);
+
+        DisplayRule firstHandBikeDisplayRule = new DisplayRule()
+        {
+            SubQuestion = firstSecondHand,
+            ValidValues = ["First hand"]
+        };
+
+        SubQuestion bikeOwnership = new SubQuestion()
+        {
+            Question = "Years of ownership",
+            Description = "How many years do you expect to own this (e-)bike?",
+            QuestionType = QuestionType.intInput,
+            UnitOptions = ["years"],
+            DefaultMetricUnit = "years",
+            DefaultImperialUnit = "years",
+            Answer = "",
+            DisplayRules = [firstHandBikeDisplayRule],
+            SubQuestionKey = V1SubQuestionKeys.mobility_years_of_ownership,
+        };
+        bikeQuestionOptionTemplate.SubQuestions.Add(bikeOwnership);
+
+        SubQuestion bikeType = new SubQuestion()
+        {
+            Question = "What kind of bike is it?",
+            Description = "E-bike or regular bike",
+            QuestionType = QuestionType.select,
+            AnswerOptions = ["Regular bike", "Electric"],
+            Answer = "",
+            SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_fuel,
+        };
+        bikeQuestionOptionTemplate.DisplaySubQuestions.Add(bikeType);
+        bikeQuestionOptionTemplate.SubQuestions.Add(bikeType);
+
+        DisplayRule electricTypeDisplayRule = new DisplayRule()
+        {
+            SubQuestion = bikeType,
+            ValidValues = ["Electric"]
+        };
+
+        SubQuestion bikeBatterySize = new SubQuestion()
+        {
+            Question = "Battery size",
+            Description = "How big is the battery in your e-bike? In Wh",
+            QuestionType = QuestionType.doubleInputOrAvg,
+            UnitOptions = ["Wh"],
+            DefaultMetricUnit = "Wh",
+            DefaultImperialUnit = "Wh",
+            Answer = "",
+            DisplayRules = [electricTypeDisplayRule],
+            SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_battery_size,
+        };
+        bikeQuestionOptionTemplate.SubQuestions.Add(bikeBatterySize);
+
+        SubQuestion bikeChargeSource = new SubQuestion()
+        {
+            Question = "Charging source",
+            Description = "What percentage of the electricity used by your e-bike came from renewable sources?",
+            QuestionType = QuestionType.percentage,
+            Answer = "",
+            DisplayRules = [electricTypeDisplayRule],
+            SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_charging_source,
+        };
+        bikeQuestionOptionTemplate.SubQuestions.Add(bikeChargeSource);
+
+        return bikeQuestion;
     }
 
     public Question CreateTaxiQuestion()
