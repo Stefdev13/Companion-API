@@ -18,7 +18,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
         return result;
     }
 
-    //ANCHOR[epic=Mobility]
+    //SECTION[epic=Mobility] - Mobility
     public void CreateAndAddMobilitySurveyCategory(SurveyModel surveyModel)
     {
         SurveyCategory mobility = new SurveyCategory()
@@ -758,8 +758,9 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
         return frequentJourneyQuestion;
     }
+    //!SECTION[epic=Mobility] - Mobility
 
-    //ANCHOR[epic=Travel]
+    //SECTION[epic=Travel] - Travel
     public void CreateAndAddTravelSurveyCategory(SurveyModel surveyModel)
     {
         //TODO: Create SurveyCategory
@@ -770,8 +771,9 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
         //TODO: Add Travel SurveyCategory to surveyModel
     }
+    //!SECTION[epic=Travel] - Travel
 
-    //ANCHOR[epic=Home]
+    //SECTION[epic=Home] - Home
     public void CreateAndAddHomeSurveyCategory(SurveyModel surveyModel)
     {
         //TODO: Create SurveyCategory
@@ -782,8 +784,9 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
         //TODO: Add Home SurveyCategory to surveyModel
     }
+    //!SECTION[epic=Home] - Home
 
-    //ANCHOR[epic=Food]
+    //SECTION[epic=Food] - Food
     public void CreateAndAddFoodSurveyCategory(SurveyModel surveyModel)
     {
         //TODO: Create SurveyCategory
@@ -794,8 +797,9 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
         //TODO: Add Food SurveyCategory to surveyModel
     }
+    //!SECTION[epic=Food] - Food
 
-    //ANCHOR[epic=Purchasing habits] - purchasing
+    //SECTION[epic=Purchasing habits] - Purchasing habits
     public void CreateAndAddPurchasingtySurveyCategory(SurveyModel surveyModel)
     {
         //TODO: Create SurveyCategory
@@ -806,4 +810,5 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
         //TODO: Add Purchasing SurveyCategory to surveyModel
     }
+    //!SECTION[epic=Purchasing habits] - Purchasing habits
 }
