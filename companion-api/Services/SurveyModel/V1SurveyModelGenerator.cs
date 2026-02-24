@@ -573,7 +573,70 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question CreateTaxiQuestion()
     {
+        Question taxiAndRideshareQuestion = new Question()
+        {
+            QuestionName = "How much do you ride in taxi's and rideshare's?",
+            Description = "Enter how many kilometers or miles you ride in electric or regular taxi's/rideshare's",
+            Tips = [],
+            QuestionOptions = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            ReusableQuestionOptionsTags = ["mobility", "taxi's"],
+        };
 
+        StandardQuestionOption regularTaxiQuestionOption = new StandardQuestionOption()
+        {
+            Name = "Regular Taxi's and rideshare's",
+            IsSelected = false,
+            DisplaySubQuestions = [],
+            Tags = ["mobility", "taxi's"],
+            SubQuestions = [],
+            UsedInOtherSurveyQuestions = true,
+            CloneOfOtherQuestionOption = false,
+            ShouldInfluenceOriginalQuestionOption = false,
+        };
+
+        SubQuestion regularTaxiUsageSubQuestion = new SubQuestion()
+        {
+            Question = "How much do you ride in taxi's or rideshare's per year?",
+            Description = "In kilometers or miles",
+            QuestionType = QuestionType.intInput,
+            UnitOptions = ["km", "mi"],
+            DefaultMetricUnit = "km",
+            DefaultImperialUnit = "mi",
+            Answer = "",
+            SubQuestionKey = V1SubQuestionKeys.mobility_annual_usage,
+        };
+        regularTaxiQuestionOption.SubQuestions.Add(regularTaxiUsageSubQuestion);
+        taxiAndRideshareQuestion.QuestionOptions.Add(regularTaxiQuestionOption);
+
+        StandardQuestionOption electricTaxiQuestionOption = new StandardQuestionOption()
+        {
+            Name = "Electric Taxi's and rideshare's",
+            IsSelected = false,
+            DisplaySubQuestions = [],
+            Tags = ["mobility", "taxi's"],
+            SubQuestions = [],
+            UsedInOtherSurveyQuestions = true,
+            CloneOfOtherQuestionOption = false,
+            ShouldInfluenceOriginalQuestionOption = false,
+        };
+
+        SubQuestion electricTaxiUsageSubQuestion = new SubQuestion()
+        {
+            Question = "How much do you ride in taxi's or rideshare's per year?",
+            Description = "In kilometers or miles",
+            QuestionType = QuestionType.intInput,
+            UnitOptions = ["km", "mi"],
+            DefaultMetricUnit = "km",
+            DefaultImperialUnit = "mi",
+            Answer = "",
+            SubQuestionKey = V1SubQuestionKeys.mobility_annual_usage,
+        };
+        electricTaxiQuestionOption.SubQuestions.Add(electricTaxiUsageSubQuestion);
+        taxiAndRideshareQuestion.QuestionOptions.Add(electricTaxiQuestionOption);
+
+        return taxiAndRideshareQuestion;
     }
 
     public Question CreateBusQuestion()
