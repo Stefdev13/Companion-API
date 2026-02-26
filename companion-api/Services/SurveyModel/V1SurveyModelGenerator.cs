@@ -763,14 +763,220 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
     //SECTION[epic=Travel] - Travel
     public void CreateAndAddTravelSurveyCategory(SurveyModel surveyModel)
     {
-        //TODO: Create SurveyCategory
-        //TODO: Create Questions
-        //TODO: Create QuestionOptions and QuestionOptionTemplates
-        //TODO: Create SubQuestions for QuestionOptions/QuestionOptionTemplates
-        //TODO: Create DisplayRules for SubQuestions
+        SurveyCategory travel = new SurveyCategory()
+        {
+            CategoryName = "Travel",
+            Description = "Going on vacation or other forms of long distance travel.",
+            Questions = [],
+        };
 
-        //TODO: Add Travel SurveyCategory to surveyModel
+        travel.Questions.Add(CreateFlightsQuestion());
+        travel.Questions.Add(CreateCarTravelQuestion());
+        travel.Questions.Add(CreateTrainTravelQuestion());
+        travel.Questions.Add(CreateBusTravelQuestion());
+        travel.Questions.Add(CreateCruiseQuestion());
+        travel.Questions.Add(CreateFerryQuestion());
+
+        //Add mobility SurveyCategory to surveyModel
+        surveyModel.SurveyCategories.Add(travel);
     }
+
+    public Question CreateFlightsQuestion()
+    {
+        Question question = new Question()
+        {
+            QuestionName = "How much do you fly per year?",
+            Description = "On short haul flight (up to 4 hours) and long haul flights (4+ hours). You can answer in distance flown or hours flown.",
+            Tips = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            QuestionOptions = [],
+            ReusableQuestionOptionsTags = ["travel", "flights"],
+        };
+
+        StandardQuestionOption shortHaulFlights = new StandardQuestionOption()
+        {
+            Name = "Short haul flights",
+            IsSelected = false,
+            Tags = ["travel", "flights"],
+            SubQuestions = [],
+            DisplaySubQuestions = [],
+        };
+
+        SubQuestion hoursDistanceToggleSH = new SubQuestion()
+        {
+            Question = "Hours or distance?",
+            Description = "",
+            QuestionType = QuestionType.toggle,
+            AnswerOptions = ["Hours", "Distance"],
+            Answer = "Distance",
+            SubQuestionKey = V1SubQuestionKeys.travel_hours_or_distance,
+        };
+        shortHaulFlights.SubQuestions.Add(hoursDistanceToggleSH);
+
+        DisplayRule hoursFlownDisplayRuleSH = new DisplayRule()
+        {
+            SubQuestion = hoursDistanceToggleSH,
+            ValidValues = ["Hours"]
+        };
+
+        DisplayRule distanceFlownDisplayRuleSH = new DisplayRule()
+        {
+            SubQuestion = hoursDistanceToggleSH,
+            ValidValues = ["Distance"]
+        };
+
+        SubQuestion hoursInputSH = new SubQuestion()
+        {
+            Question = "How many hours do you fly per year?",
+            Description = "",
+            QuestionType = QuestionType.intInput,
+            Answer = "",
+            UnitOptions = ["hours"],
+            SelectedUnit = "hours",
+            DefaultMetricUnit = "hours",
+            DefaultImperialUnit = "hours",
+            DisplayRules = [hoursFlownDisplayRuleSH],
+            SubQuestionKey = V1SubQuestionKeys.travel_hours_flown,
+        };
+        shortHaulFlights.SubQuestions.Add(hoursInputSH);
+        shortHaulFlights.DisplaySubQuestions.Add(hoursInputSH);
+
+        SubQuestion distanceInputSH = new SubQuestion()
+        {
+            Question = "How much do you fly per year?",
+            Description = "",
+            QuestionType = QuestionType.intInput,
+            Answer = "",
+            UnitOptions = ["km", "mi"],
+            DefaultMetricUnit = "km",
+            DefaultImperialUnit = "mi",
+            DisplayRules = [distanceFlownDisplayRuleSH],
+            SubQuestionKey = V1SubQuestionKeys.travel_distance_flown,
+        };
+        shortHaulFlights.SubQuestions.Add(distanceInputSH);
+        shortHaulFlights.DisplaySubQuestions.Add(distanceInputSH);
+
+        question.QuestionOptions.Add(shortHaulFlights);
+
+        StandardQuestionOption longHaulFlights = new StandardQuestionOption()
+        {
+            Name = "Short haul flights",
+            IsSelected = false,
+            Tags = ["travel", "flights"],
+            SubQuestions = [],
+            DisplaySubQuestions = [],
+        };
+
+        SubQuestion hoursDistanceToggleLH = new SubQuestion()
+        {
+            Question = "Hours or distance?",
+            Description = "",
+            QuestionType = QuestionType.toggle,
+            AnswerOptions = ["Hours", "Distance"],
+            Answer = "Distance",
+            SubQuestionKey = V1SubQuestionKeys.travel_hours_or_distance,
+        };
+        shortHaulFlights.SubQuestions.Add(hoursDistanceToggleLH);
+
+        DisplayRule hoursFlownDisplayRuleLH = new DisplayRule()
+        {
+            SubQuestion = hoursDistanceToggleLH,
+            ValidValues = ["Hours"]
+        };
+
+        DisplayRule distanceFlownDisplayRuleLH = new DisplayRule()
+        {
+            SubQuestion = hoursDistanceToggleLH,
+            ValidValues = ["Distance"]
+        };
+
+        SubQuestion hoursInputLH = new SubQuestion()
+        {
+            Question = "How many hours do you fly per year?",
+            Description = "",
+            QuestionType = QuestionType.intInput,
+            Answer = "",
+            UnitOptions = ["hours"],
+            SelectedUnit = "hours",
+            DefaultMetricUnit = "hours",
+            DefaultImperialUnit = "hours",
+            DisplayRules = [hoursFlownDisplayRuleLH],
+            SubQuestionKey = V1SubQuestionKeys.travel_hours_flown,
+        };
+        shortHaulFlights.SubQuestions.Add(hoursInputLH);
+        shortHaulFlights.DisplaySubQuestions.Add(hoursInputLH);
+
+        SubQuestion distanceInputLH = new SubQuestion()
+        {
+            Question = "How much do you fly per year?",
+            Description = "",
+            QuestionType = QuestionType.intInput,
+            Answer = "",
+            UnitOptions = ["km", "mi"],
+            DefaultMetricUnit = "km",
+            DefaultImperialUnit = "mi",
+            DisplayRules = [distanceFlownDisplayRuleLH],
+            SubQuestionKey = V1SubQuestionKeys.travel_distance_flown,
+        };
+        shortHaulFlights.SubQuestions.Add(distanceInputLH);
+        shortHaulFlights.DisplaySubQuestions.Add(distanceInputLH);
+
+        question.QuestionOptions.Add(longHaulFlights);
+
+        return question;
+    }
+
+    public Question CreateCarTravelQuestion()
+    {
+        //TODO - Create the question
+        //TODO - Create the QuestionOptions, QuestionOptionTemplates and/or set the dynamicQuestionOptionParams
+        //TODO - Create the SubQuestions for QuestionOptions and/or QuestionOptionTemplates
+        //TODO - Create and add DisplayRules for + to SubQuestions
+        //TODO - Add the QuestionOptions, QuestionOptionTemplates to the Question
+        //TODO - Return the Question
+    }
+
+    public Question CreateTrainTravelQuestion()
+    {
+        //TODO - Create the question
+        //TODO - Create the QuestionOptions, QuestionOptionTemplates and/or set the dynamicQuestionOptionParams
+        //TODO - Create the SubQuestions for QuestionOptions and/or QuestionOptionTemplates
+        //TODO - Create and add DisplayRules for + to SubQuestions
+        //TODO - Add the QuestionOptions, QuestionOptionTemplates to the Question
+        //TODO - Return the Question
+    }
+
+    public Question CreateBusTravelQuestion()
+    {
+        //TODO - Create the question
+        //TODO - Create the QuestionOptions, QuestionOptionTemplates and/or set the dynamicQuestionOptionParams
+        //TODO - Create the SubQuestions for QuestionOptions and/or QuestionOptionTemplates
+        //TODO - Create and add DisplayRules for + to SubQuestions
+        //TODO - Add the QuestionOptions, QuestionOptionTemplates to the Question
+        //TODO - Return the Question
+    }
+
+    public Question CreateCruiseQuestion()
+    {
+        //TODO - Create the question
+        //TODO - Create the QuestionOptions, QuestionOptionTemplates and/or set the dynamicQuestionOptionParams
+        //TODO - Create the SubQuestions for QuestionOptions and/or QuestionOptionTemplates
+        //TODO - Create and add DisplayRules for + to SubQuestions
+        //TODO - Add the QuestionOptions, QuestionOptionTemplates to the Question
+        //TODO - Return the Question
+    }
+
+    public Question CreateFerryQuestion()
+    {
+        //TODO - Create the question
+        //TODO - Create the QuestionOptions, QuestionOptionTemplates and/or set the dynamicQuestionOptionParams
+        //TODO - Create the SubQuestions for QuestionOptions and/or QuestionOptionTemplates
+        //TODO - Create and add DisplayRules for + to SubQuestions
+        //TODO - Add the QuestionOptions, QuestionOptionTemplates to the Question
+        //TODO - Return the Question
+    }
+
     //!SECTION[epic=Travel] - Travel
 
     //SECTION[epic=Home] - Home
