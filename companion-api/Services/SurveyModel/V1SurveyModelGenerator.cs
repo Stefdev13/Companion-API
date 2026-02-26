@@ -1899,7 +1899,259 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question CreateHotWaterQuestion()
     {
+        Question question = new Question()
+        {
+            QuestionName = "How do you heat your water and how much energy do you use?",
+            Description = "Select the heating sources you use and enter how much you energy you use from those sources.",
+            Tips = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            QuestionOptions = [],
+            ReusableQuestionOptionsTags = ["home", "hot water"],
+        };
 
+        question.QuestionOptions.Add(createNaturalGasQuestionOption());
+        question.QuestionOptions.Add(createHeatingOilQuestionOption());
+        question.QuestionOptions.Add(createElectricQuestionOption());
+        question.QuestionOptions.Add(createHeatPumpGroundQuestionOption());
+        question.QuestionOptions.Add(createHeatPumpAirQuestionOption());
+        question.QuestionOptions.Add(createWoodPelletsQuestionOption());
+        question.QuestionOptions.Add(createWoodQuestionOption());
+        question.QuestionOptions.Add(createGeothermalQuestionOption());
+
+        return question;
+
+        QuestionOption createNaturalGasQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Natural gas",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion usageSubQuestion = new SubQuestion()
+            {
+                Question = "Annual usage",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["m3", "ft3", "kWh", "GJ"],
+                DefaultMetricUnit = "m3",
+                DefaultImperialUnit = "ft3",
+                AverageValueRoute = "home/heating/natural-gas",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(usageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(usageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createHeatingOilQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Heating oil",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion usageSubQuestion = new SubQuestion()
+            {
+                Question = "Annual usage",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["BTU", "kWh", "GJ"],
+                DefaultMetricUnit = "kWh",
+                DefaultImperialUnit = "kWh",
+                AverageValueRoute = "home/heating/heating-oil",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(usageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(usageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createElectricQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Electric",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion usageSubQuestion = new SubQuestion()
+            {
+                Question = "Annual usage",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["kWh", "GJ"],
+                DefaultMetricUnit = "kWh",
+                DefaultImperialUnit = "kWh",
+                AverageValueRoute = "home/heating/electric",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(usageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(usageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createHeatPumpGroundQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Ground source heat pump",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion usageSubQuestion = new SubQuestion()
+            {
+                Question = "Annual usage",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["kWh", "GJ"],
+                DefaultMetricUnit = "kWh",
+                DefaultImperialUnit = "kWh",
+                AverageValueRoute = "home/heating/gshp",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(usageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(usageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createHeatPumpAirQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Air source heat pump",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion usageSubQuestion = new SubQuestion()
+            {
+                Question = "Annual usage",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["kWh", "GJ"],
+                DefaultMetricUnit = "kWh",
+                DefaultImperialUnit = "kWh",
+                AverageValueRoute = "home/heating/ashp",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(usageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(usageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createWoodPelletsQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Wood pellets",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion usageSubQuestion = new SubQuestion()
+            {
+                Question = "Annual usage",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["m3", "ft3", "tonne", "kWh", "GJ"],
+                DefaultMetricUnit = "tonne",
+                DefaultImperialUnit = "tonne",
+                AverageValueRoute = "home/heating/wood-pellets",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(usageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(usageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createWoodQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Wood",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion usageSubQuestion = new SubQuestion()
+            {
+                Question = "Annual usage",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["m3", "ft3", "tonne", "kWh", "GJ"],
+                DefaultMetricUnit = "tonne",
+                DefaultImperialUnit = "tonne",
+                AverageValueRoute = "home/heating/wood",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(usageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(usageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createGeothermalQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Geothermal heat",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion usageSubQuestion = new SubQuestion()
+            {
+                Question = "Annual usage",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["kWh", "GJ"],
+                DefaultMetricUnit = "kWh",
+                DefaultImperialUnit = "kWh",
+                AverageValueRoute = "home/heating/geothermal",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(usageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(usageSubQuestion);
+
+            return questionOption;
+        }
     }
 
     public Question CreateCoolingQuestion()
