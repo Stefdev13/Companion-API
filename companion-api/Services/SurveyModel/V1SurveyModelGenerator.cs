@@ -1199,12 +1199,43 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question CreateCruiseQuestion()
     {
-        //TODO - Create the question
-        //TODO - Create the QuestionOptions, QuestionOptionTemplates and/or set the dynamicQuestionOptionParams
-        //TODO - Create the SubQuestions for QuestionOptions and/or QuestionOptionTemplates
-        //TODO - Create and add DisplayRules for + to SubQuestions
-        //TODO - Add the QuestionOptions, QuestionOptionTemplates to the Question
-        //TODO - Return the Question
+        Question question = new Question()
+        {
+            QuestionName = "How much do you travel by cruise per year?",
+            Description = "You can answer in distance travelled.",
+            Tips = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            QuestionOptions = [],
+            ReusableQuestionOptionsTags = ["travel", "cruise"],
+        };
+
+        StandardQuestionOption regularCruise = new StandardQuestionOption()
+        {
+            Name = "Regular Cruise",
+            IsSelected = false,
+            Tags = ["travel", "cruise"],
+            SubQuestions = [],
+            DisplaySubQuestions = [],
+        };
+
+        SubQuestion distanceInputCruise = new SubQuestion()
+        {
+            Question = "How much do you travel per year?",
+            Description = "",
+            QuestionType = QuestionType.intInput,
+            Answer = "",
+            UnitOptions = ["km", "mi"],
+            DefaultMetricUnit = "km",
+            DefaultImperialUnit = "mi",
+            SubQuestionKey = V1SubQuestionKeys.travel_distance_travelled,
+        };
+        regularCruise.SubQuestions.Add(distanceInputCruise);
+        regularCruise.DisplaySubQuestions.Add(distanceInputCruise);
+
+        question.QuestionOptions.Add(regularCruise);
+
+        return question;
     }
 
     public Question CreateFerryQuestion()
