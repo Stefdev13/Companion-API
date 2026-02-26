@@ -1240,14 +1240,228 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question CreateFerryQuestion()
     {
-        //TODO - Create the question
-        //TODO - Create the QuestionOptions, QuestionOptionTemplates and/or set the dynamicQuestionOptionParams
-        //TODO - Create the SubQuestions for QuestionOptions and/or QuestionOptionTemplates
-        //TODO - Create and add DisplayRules for + to SubQuestions
-        //TODO - Add the QuestionOptions, QuestionOptionTemplates to the Question
-        //TODO - Return the Question
-    }
+        Question question = new Question()
+        {
+            QuestionName = "How much do you travel by ferry per year?",
+            Description = "As a foot passenger, with a car or as an average passenger. You can answer in distance travelled or hours travelled.",
+            Tips = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            QuestionOptions = [],
+            ReusableQuestionOptionsTags = ["travel", "ferry"],
+        };
 
+        question.QuestionOptions.Add(createAveragePassengerOption());
+        question.QuestionOptions.Add(createFootPassengerOption());
+        question.QuestionOptions.Add(createCarPassengerOption());
+
+        return question;
+
+        StandardQuestionOption createAveragePassengerOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption()
+            {
+                Name = "Average passenger",
+                IsSelected = false,
+                Tags = ["travel", "ferry"],
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion hoursDistanceToggleSubQuestion = new SubQuestion()
+            {
+                Question = "Hours or distance?",
+                Description = "",
+                QuestionType = QuestionType.toggle,
+                AnswerOptions = ["Hours", "Distance"],
+                Answer = "Distance",
+                SubQuestionKey = V1SubQuestionKeys.travel_hours_or_distance,
+            };
+            questionOption.SubQuestions.Add(hoursDistanceToggleSubQuestion);
+
+            DisplayRule hoursDisplayRule = new DisplayRule()
+            {
+                SubQuestion = hoursDistanceToggleSubQuestion,
+                ValidValues = ["Hours"]
+            };
+
+            DisplayRule distanceDisplayRule = new DisplayRule()
+            {
+                SubQuestion = hoursDistanceToggleSubQuestion,
+                ValidValues = ["Distance"]
+            };
+
+            SubQuestion hoursInputSubQuestion = new SubQuestion()
+            {
+                Question = "How many hours do you travel per year?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["hours"],
+                SelectedUnit = "hours",
+                DefaultMetricUnit = "hours",
+                DefaultImperialUnit = "hours",
+                DisplayRules = [hoursDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.travel_hours_travelled,
+            };
+            questionOption.SubQuestions.Add(hoursInputSubQuestion);
+            questionOption.DisplaySubQuestions.Add(hoursInputSubQuestion);
+
+            SubQuestion distanceInputSubQuestion = new SubQuestion()
+            {
+                Question = "How much do you travel per year?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["km", "mi"],
+                DefaultMetricUnit = "km",
+                DefaultImperialUnit = "mi",
+                DisplayRules = [distanceDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.travel_distance_travelled,
+            };
+            questionOption.SubQuestions.Add(distanceInputSubQuestion);
+            questionOption.DisplaySubQuestions.Add(distanceInputSubQuestion);
+
+            return questionOption;
+        }
+
+        StandardQuestionOption createFootPassengerOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption()
+            {
+                Name = "Foot passenger",
+                IsSelected = false,
+                Tags = ["travel", "ferry"],
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion hoursDistanceToggleSubQuestion = new SubQuestion()
+            {
+                Question = "Hours or distance?",
+                Description = "",
+                QuestionType = QuestionType.toggle,
+                AnswerOptions = ["Hours", "Distance"],
+                Answer = "Distance",
+                SubQuestionKey = V1SubQuestionKeys.travel_hours_or_distance,
+            };
+            questionOption.SubQuestions.Add(hoursDistanceToggleSubQuestion);
+
+            DisplayRule hoursDisplayRule = new DisplayRule()
+            {
+                SubQuestion = hoursDistanceToggleSubQuestion,
+                ValidValues = ["Hours"]
+            };
+
+            DisplayRule distanceDisplayRule = new DisplayRule()
+            {
+                SubQuestion = hoursDistanceToggleSubQuestion,
+                ValidValues = ["Distance"]
+            };
+
+            SubQuestion hoursInputSubQuestion = new SubQuestion()
+            {
+                Question = "How many hours do you travel per year?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["hours"],
+                SelectedUnit = "hours",
+                DefaultMetricUnit = "hours",
+                DefaultImperialUnit = "hours",
+                DisplayRules = [hoursDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.travel_hours_travelled,
+            };
+            questionOption.SubQuestions.Add(hoursInputSubQuestion);
+            questionOption.DisplaySubQuestions.Add(hoursInputSubQuestion);
+
+            SubQuestion distanceInputSubQuestion = new SubQuestion()
+            {
+                Question = "How much do you travel per year?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["km", "mi"],
+                DefaultMetricUnit = "km",
+                DefaultImperialUnit = "mi",
+                DisplayRules = [distanceDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.travel_distance_travelled,
+            };
+            questionOption.SubQuestions.Add(distanceInputSubQuestion);
+            questionOption.DisplaySubQuestions.Add(distanceInputSubQuestion);
+
+            return questionOption;
+        }
+
+        StandardQuestionOption createCarPassengerOption()
+        {
+
+            StandardQuestionOption questionOption = new StandardQuestionOption()
+            {
+                Name = "Car passenger",
+                IsSelected = false,
+                Tags = ["travel", "ferry"],
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion hoursDistanceToggleSubQuestion = new SubQuestion()
+            {
+                Question = "Hours or distance?",
+                Description = "",
+                QuestionType = QuestionType.toggle,
+                AnswerOptions = ["Hours", "Distance"],
+                Answer = "Distance",
+                SubQuestionKey = V1SubQuestionKeys.travel_hours_or_distance,
+            };
+            questionOption.SubQuestions.Add(hoursDistanceToggleSubQuestion);
+
+            DisplayRule hoursDisplayRule = new DisplayRule()
+            {
+                SubQuestion = hoursDistanceToggleSubQuestion,
+                ValidValues = ["Hours"]
+            };
+
+            DisplayRule distanceDisplayRule = new DisplayRule()
+            {
+                SubQuestion = hoursDistanceToggleSubQuestion,
+                ValidValues = ["Distance"]
+            };
+
+            SubQuestion hoursInputSubQuestion = new SubQuestion()
+            {
+                Question = "How many hours do you travel per year?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["hours"],
+                SelectedUnit = "hours",
+                DefaultMetricUnit = "hours",
+                DefaultImperialUnit = "hours",
+                DisplayRules = [hoursDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.travel_hours_travelled,
+            };
+            questionOption.SubQuestions.Add(hoursInputSubQuestion);
+            questionOption.DisplaySubQuestions.Add(hoursInputSubQuestion);
+
+            SubQuestion distanceInputSubQuestion = new SubQuestion()
+            {
+                Question = "How much do you travel per year?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["km", "mi"],
+                DefaultMetricUnit = "km",
+                DefaultImperialUnit = "mi",
+                DisplayRules = [distanceDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.travel_distance_travelled,
+            };
+            questionOption.SubQuestions.Add(distanceInputSubQuestion);
+            questionOption.DisplaySubQuestions.Add(distanceInputSubQuestion);
+
+            return questionOption;
+        }
+    }
     //!SECTION[epic=Travel] - Travel
 
     //SECTION[epic=Home] - Home
