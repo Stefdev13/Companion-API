@@ -2499,13 +2499,478 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
     //SECTION[epic=Food] - Food
     public void CreateAndAddFoodSurveyCategory(SurveyModel surveyModel)
     {
-        //TODO: Create SurveyCategory
-        //TODO: Create Questions
-        //TODO: Create QuestionOptions
-        //TODO: Create SubQuestions for QuestionOptions
-        //TODO: Create DisplayRules for SubQuestions
+        SurveyCategory food = new SurveyCategory
+        {
+            CategoryName = "Food",
+            Description = "The food you eat",
+            Questions = [],
+        };
 
-        //TODO: Add Food SurveyCategory to surveyModel
+        food.Questions.Add(createMeatFishAndTofuQuestion());
+        food.Questions.Add(createDairyAndEggsQuestion());
+        food.Questions.Add(createFruitsAndVegetablesQuestion());
+        food.Questions.Add(createGrainProductsQuestion());
+        food.Questions.Add(createOtherFoodsQuestion());
+
+        surveyModel.SurveyCategories.Add(food);
+    }
+
+    public Question createMeatFishAndTofuQuestion()
+    {
+
+        Question question = new Question()
+        {
+            QuestionName = "How much meat, fish and tofu do you eat?",
+            Description = "Select the foods you eat and enter how much and how often you eat them.",
+            Tips = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            QuestionOptions = [],
+            ReusableQuestionOptionsTags = ["food", "meat-fish-tofu"],
+        };
+
+        question.QuestionOptions.Add(createBeefQuestionOption());
+        question.QuestionOptions.Add(createLambAndMuttonQuestionOption());
+        question.QuestionOptions.Add(createPorkQuestionOption());
+        question.QuestionOptions.Add(createPoultryQuestionOption());
+        question.QuestionOptions.Add(createShellfishFarmedQuestionOption());
+        question.QuestionOptions.Add(createShellfishWildQuestionOption());
+        question.QuestionOptions.Add(createFishFarmedQuestionOption());
+        question.QuestionOptions.Add(createFishWildQuestionOption());
+        question.QuestionOptions.Add(createTofuQuestionOption());
+        question.QuestionOptions.Add(createSeitanQuestionOption());
+
+        return question;
+
+        QuestionOption createBeefQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Beef",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/meat-fish-tofu/beef",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/meat-fish-tofu/beef",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createLambAndMuttonQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Lamb and Mutton",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/meat-fish-tofu/lamb-mutton",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/meat-fish-tofu/lamb-mutton",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createPorkQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Pork",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/meat-fish-tofu/pork",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/meat-fish-tofu/pork",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createPoultryQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Poultry",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/meat-fish-tofu/poultry",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/meat-fish-tofu/poultry",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createShellfishFarmedQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Shellfish farmed",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/meat-fish-tofu/shellfish-farmed",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/meat-fish-tofu/shellfish-farmed",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createShellfishWildQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Shellfish wild",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/meat-fish-tofu/shellfish-wild",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/meat-fish-tofu/shellfish-wild",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createFishFarmedQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Fish farmed",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/meat-fish-tofu/fish-farmed",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/meat-fish-tofu/fish-farmed",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createFishWildQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Fish wild",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/meat-fish-tofu/fish-wild",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/meat-fish-tofu/fish-wild",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createTofuQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Tofu",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/meat-fish-tofu/tofu",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/meat-fish-tofu/tofu",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createSeitanQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Seitan",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/meat-fish-tofu/seitan",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/meat-fish-tofu/seitan",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+    }
+
+    public Question createDairyAndEggsQuestion()
+    {
+
+    }
+
+    public Question createFruitsAndVegetablesQuestion()
+    {
+
+    }
+
+    public Question createGrainProductsQuestion()
+    {
+
+    }
+
+    public Question createOtherFoodsQuestion()
+    {
+
     }
     //!SECTION[epic=Food] - Food
 

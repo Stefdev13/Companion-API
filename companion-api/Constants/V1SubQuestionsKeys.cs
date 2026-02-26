@@ -19,4 +19,6 @@ public static class V1SubQuestionKeys
     public static readonly string travel_hours_travelled = "hours_travelled";
     public static readonly string travel_distance_travelled = "distance_travelled";
     public static readonly string home_annual_usage = "annual_usage";
+    public static readonly string food_portion_size = "portion_size";
+    public static readonly string food_weekly_frequency = "weekly_frequency";
 }
