@@ -929,12 +929,45 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question CreateCarTravelQuestion()
     {
-        //TODO - Create the question
-        //TODO - Create the QuestionOptions, QuestionOptionTemplates and/or set the dynamicQuestionOptionParams
-        //TODO - Create the SubQuestions for QuestionOptions and/or QuestionOptionTemplates
-        //TODO - Create and add DisplayRules for + to SubQuestions
-        //TODO - Add the QuestionOptions, QuestionOptionTemplates to the Question
-        //TODO - Return the Question
+        Question question = new Question()
+        {
+            QuestionName = "How much do you travel by car?",
+            Description = "Please enter the total distance you drive in a year for vacations or other long distance travel.",
+            Tips = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = true,
+            QuestionOptions = [],
+            ReusableQuestionOptionsTags = ["mobility", "cars"],
+        };
+
+        StandardQuestionOption questionOptionTemplate = new StandardQuestionOption()
+        {
+            Name = "",
+            IsSelected = true,
+            SubQuestions = [],
+            DisplaySubQuestions = [],
+            ShouldInfluenceOriginalQuestionOption = false,
+            CloneOfOtherQuestionOption = true,
+            Tags = ["travel", "cars"]
+        };
+
+        SubQuestion travelMileageSubQuestion = new SubQuestion()
+        {
+            Question = "How much do you travel per year?",
+            Description = "In kilometers or miles",
+            QuestionType = QuestionType.intInput,
+            Answer = "",
+            UnitOptions = ["km", "mi"],
+            DefaultMetricUnit = "km",
+            DefaultImperialUnit = "mi",
+            SubQuestionKey = V1SubQuestionKeys.travel_distance_driven
+        };
+        questionOptionTemplate.SubQuestions.Add(travelMileageSubQuestion);
+        questionOptionTemplate.DisplaySubQuestions.Add(travelMileageSubQuestion);
+
+        question.OptionTemplate = questionOptionTemplate;
+
+        return question;
     }
 
     public Question CreateTrainTravelQuestion()

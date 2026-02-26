@@ -18,4 +18,5 @@ public static class V1SubQuestionKeys
     public static readonly string travel_hours_or_distance = "hours_or_distance";
     public static readonly string travel_hours_flown = "hours_flown";
     public static readonly string travel_distance_flown = "distance_flown";
+    public static readonly string travel_distance_driven = "distance_driven";
 }
