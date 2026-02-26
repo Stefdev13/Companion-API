@@ -2156,7 +2156,42 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question CreateCoolingQuestion()
     {
+        Question question = new Question()
+        {
+            QuestionName = "Do you use air-conditioning and how much A/C do you use?",
+            Description = "Select Air-conditioning if you use it and enter how much you use it.",
+            Tips = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            QuestionOptions = [],
+            ReusableQuestionOptionsTags = ["home", "cooling"],
+        };
 
+        StandardQuestionOption questionOption = new StandardQuestionOption
+        {
+            Name = "Air conditioning",
+            Tags = [],
+            IsSelected = false,
+            SubQuestions = [],
+            DisplaySubQuestions = [],
+        };
+
+        SubQuestion usageSubQuestion = new SubQuestion()
+        {
+            Question = "Annual usage",
+            Description = "",
+            QuestionType = QuestionType.doubleInputOrAvg,
+            Answer = "",
+            UnitOptions = ["kWh", "GJ"],
+            DefaultMetricUnit = "kWh",
+            DefaultImperialUnit = "kWh",
+            AverageValueRoute = "home/cooling/air-conditioning",
+            SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+        };
+        questionOption.SubQuestions.Add(usageSubQuestion);
+        questionOption.DisplaySubQuestions.Add(usageSubQuestion);
+
+        return question;
     }
 
     public Question CreateCookingQuestion()
