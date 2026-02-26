@@ -2191,11 +2191,307 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
         questionOption.SubQuestions.Add(usageSubQuestion);
         questionOption.DisplaySubQuestions.Add(usageSubQuestion);
 
+        question.QuestionOptions.Add(questionOption);
+
         return question;
     }
 
     public Question CreateCookingQuestion()
     {
+
+        Question question = new Question()
+        {
+            QuestionName = "Which appliances do you use to cook and how much do you use them?",
+            Description = "Select the appliances you use and enter how much you use them.",
+            Tips = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            QuestionOptions = [],
+            ReusableQuestionOptionsTags = ["home", "cooking"],
+        };
+
+        question.QuestionOptions.Add(createGasCooktopQuestionOption());
+        question.QuestionOptions.Add(createElectricCooktopQuestionOption());
+        question.QuestionOptions.Add(createInductionCooktopQuestionOption());
+        question.QuestionOptions.Add(createOvenQuestionOption());
+        question.QuestionOptions.Add(createAirfryerQuestionOption());
+        question.QuestionOptions.Add(createSlowCookerQuestionOption());
+        question.QuestionOptions.Add(createMicrowaveQuestionOption());
+
+        return question;
+
+        QuestionOption createGasCooktopQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Gas cooktop",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion timePerUseSubQuestion = new SubQuestion()
+            {
+                Question = "Time per use",
+                Description = "How long, on average, do you use your gas cooktop? In minutes",
+                QuestionType = QuestionType.doubleInput,
+                Answer = "",
+                UnitOptions = ["minutes"],
+                DefaultMetricUnit = "minutes",
+                DefaultImperialUnit = "minutes",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(timePerUseSubQuestion);
+            questionOption.DisplaySubQuestions.Add(timePerUseSubQuestion);
+
+            SubQuestion weeklyUsageSubQuestion = new SubQuestion()
+            {
+                Question = "Weekly usage",
+                Description = "How many times per week do you use your cooktop?",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(weeklyUsageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(weeklyUsageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createElectricCooktopQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Electric cooktop",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion timePerUseSubQuestion = new SubQuestion()
+            {
+                Question = "Time per use",
+                Description = "How long, on average, do you use your electric cooktop? In minutes",
+                QuestionType = QuestionType.doubleInput,
+                Answer = "",
+                UnitOptions = ["minutes"],
+                DefaultMetricUnit = "minutes",
+                DefaultImperialUnit = "minutes",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(timePerUseSubQuestion);
+            questionOption.DisplaySubQuestions.Add(timePerUseSubQuestion);
+
+            SubQuestion weeklyUsageSubQuestion = new SubQuestion()
+            {
+                Question = "Weekly usage",
+                Description = "How many times per week do you use your cooktop?",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(weeklyUsageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(weeklyUsageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createInductionCooktopQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Induction cooktop",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion timePerUseSubQuestion = new SubQuestion()
+            {
+                Question = "Time per use",
+                Description = "How long, on average, do you use your induction cooktop? In minutes",
+                QuestionType = QuestionType.doubleInput,
+                Answer = "",
+                UnitOptions = ["minutes"],
+                DefaultMetricUnit = "minutes",
+                DefaultImperialUnit = "minutes",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(timePerUseSubQuestion);
+            questionOption.DisplaySubQuestions.Add(timePerUseSubQuestion);
+
+            SubQuestion weeklyUsageSubQuestion = new SubQuestion()
+            {
+                Question = "Weekly usage",
+                Description = "How many times per week do you use your cooktop?",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(weeklyUsageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(weeklyUsageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createOvenQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Oven",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion timePerUseSubQuestion = new SubQuestion()
+            {
+                Question = "Time per use",
+                Description = "How long, on average, do you use your oven? In minutes",
+                QuestionType = QuestionType.doubleInput,
+                Answer = "",
+                UnitOptions = ["minutes"],
+                DefaultMetricUnit = "minutes",
+                DefaultImperialUnit = "minutes",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(timePerUseSubQuestion);
+            questionOption.DisplaySubQuestions.Add(timePerUseSubQuestion);
+
+            SubQuestion weeklyUsageSubQuestion = new SubQuestion()
+            {
+                Question = "Weekly usage",
+                Description = "How many times per week do you use your oven?",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(weeklyUsageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(weeklyUsageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createAirfryerQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Airfryer",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion timePerUseSubQuestion = new SubQuestion()
+            {
+                Question = "Time per use",
+                Description = "How long, on average, do you use your airfryer? In minutes",
+                QuestionType = QuestionType.doubleInput,
+                Answer = "",
+                UnitOptions = ["minutes"],
+                DefaultMetricUnit = "minutes",
+                DefaultImperialUnit = "minutes",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(timePerUseSubQuestion);
+            questionOption.DisplaySubQuestions.Add(timePerUseSubQuestion);
+
+            SubQuestion weeklyUsageSubQuestion = new SubQuestion()
+            {
+                Question = "Weekly usage",
+                Description = "How many times per week do you use your airfryer?",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(weeklyUsageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(weeklyUsageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createSlowCookerQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Slow cooker",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion timePerUseSubQuestion = new SubQuestion()
+            {
+                Question = "Time per use",
+                Description = "How long, on average, do you use your slow cooker? In minutes",
+                QuestionType = QuestionType.doubleInput,
+                Answer = "",
+                UnitOptions = ["minutes"],
+                DefaultMetricUnit = "minutes",
+                DefaultImperialUnit = "minutes",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(timePerUseSubQuestion);
+            questionOption.DisplaySubQuestions.Add(timePerUseSubQuestion);
+
+            SubQuestion weeklyUsageSubQuestion = new SubQuestion()
+            {
+                Question = "Weekly usage",
+                Description = "How many times per week do you use your slow cooker?",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(weeklyUsageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(weeklyUsageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createMicrowaveQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Microwave",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion timePerUseSubQuestion = new SubQuestion()
+            {
+                Question = "Time per use",
+                Description = "How long, on average, do you use your microwave? In minutes",
+                QuestionType = QuestionType.doubleInput,
+                Answer = "",
+                UnitOptions = ["minutes"],
+                DefaultMetricUnit = "minutes",
+                DefaultImperialUnit = "minutes",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(timePerUseSubQuestion);
+            questionOption.DisplaySubQuestions.Add(timePerUseSubQuestion);
+
+            SubQuestion weeklyUsageSubQuestion = new SubQuestion()
+            {
+                Question = "Weekly usage",
+                Description = "How many times per week do you use your microwave?",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(weeklyUsageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(weeklyUsageSubQuestion);
+
+            return questionOption;
+        }
 
     }
     //!SECTION[epic=Home] - Home
