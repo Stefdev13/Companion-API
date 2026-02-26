@@ -3224,7 +3224,523 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question createFruitsAndVegetablesQuestion()
     {
+        Question question = new Question()
+        {
+            QuestionName = "How much fruit and vegetables do you eat?",
+            Description = "Select the foods you eat and enter how much and how often you eat them.",
+            Tips = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            QuestionOptions = [],
+            ReusableQuestionOptionsTags = ["food", "fruit-vegetables"],
+        };
 
+        question.QuestionOptions.Add(createCitrusFruitsQuestionOption());
+        question.QuestionOptions.Add(createBerriesAndGrapesQuestionOption());
+        question.QuestionOptions.Add(createBananasQuestionOption());
+        question.QuestionOptions.Add(createOtherFruitQuestionOption());
+        question.QuestionOptions.Add(createPulsesQuestionOption());
+        question.QuestionOptions.Add(createPeasQuestionOption());
+        question.QuestionOptions.Add(createPotatoesQuestionOption());
+        question.QuestionOptions.Add(createUnionsAndLeeksQuestionOption());
+        question.QuestionOptions.Add(createRootVegetablesQuestionOption());
+        question.QuestionOptions.Add(createTomatoesQuestionOption());
+        question.QuestionOptions.Add(createCornQuestionOption());
+        question.QuestionOptions.Add(createOtherVegetablesQuestionOption());
+
+        return question;
+
+        QuestionOption createCitrusFruitsQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Citrus fruits",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["pieces", "g", "oz"],
+                DefaultMetricUnit = "pieces",
+                DefaultImperialUnit = "pieces",
+                AverageValueRoute = "food/fruit-vegetables/citrus",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/fruit-vegetables/citrus",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createBerriesAndGrapesQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Berries and grapes",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/fruit-vegetables/berries-grapes",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/fruit-vegetables/berries-grapes",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createBananasQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Bananas",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["bananas", "g", "oz"],
+                DefaultMetricUnit = "bananas",
+                DefaultImperialUnit = "bananas",
+                AverageValueRoute = "food/fruit-vegetables/bananas",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/fruit-vegetables/bananas",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createOtherFruitQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Other fruit",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/fruit-vegetables/other-fruit",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/fruit-vegetables/other-fruit",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createPulsesQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Pulses",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/fruit-vegetables/pulses",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/fruit-vegetables/pulses",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createPeasQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Peas",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/fruit-vegetables/peas",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/fruit-vegetables/peas",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createPotatoesQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Potatoes",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/fruit-vegetables/potatoes",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/fruit-vegetables/potatoes",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createUnionsAndLeeksQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Unions and leeks",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/fruit-vegetables/unions-leeks",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/fruit-vegetables/unions-leeks",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createRootVegetablesQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Root vegetables",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/fruit-vegetables/root-vegetables",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/fruit-vegetables/root-vegetables",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createTomatoesQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Tomatoes",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/fruit-vegetables/tomatoes",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/fruit-vegetables/tomatoes",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createCornQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Corn",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/fruit-vegetables/corn",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/fruit-vegetables/corn",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createOtherVegetablesQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Other vegetables",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/fruit-vegetables/other-vegetables",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/fruit-vegetables/other-vegetables",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
     }
 
     public Question createGrainProductsQuestion()
