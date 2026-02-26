@@ -1118,12 +1118,83 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question CreateBusTravelQuestion()
     {
-        //TODO - Create the question
-        //TODO - Create the QuestionOptions, QuestionOptionTemplates and/or set the dynamicQuestionOptionParams
-        //TODO - Create the SubQuestions for QuestionOptions and/or QuestionOptionTemplates
-        //TODO - Create and add DisplayRules for + to SubQuestions
-        //TODO - Add the QuestionOptions, QuestionOptionTemplates to the Question
-        //TODO - Return the Question
+        Question question = new Question()
+        {
+            QuestionName = "How much do you travel by bus per year?",
+            Description = "You can answer in distance travelled or hours travelled.",
+            Tips = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            QuestionOptions = [],
+            ReusableQuestionOptionsTags = ["travel", "bus"],
+        };
+
+        StandardQuestionOption regularBus = new StandardQuestionOption()
+        {
+            Name = "Regular Diesel Bus",
+            IsSelected = false,
+            Tags = ["travel", "bus"],
+            SubQuestions = [],
+            DisplaySubQuestions = [],
+        };
+
+        SubQuestion hoursDistanceToggleBus = new SubQuestion()
+        {
+            Question = "Hours or distance?",
+            Description = "",
+            QuestionType = QuestionType.toggle,
+            AnswerOptions = ["Hours", "Distance"],
+            Answer = "Distance",
+            SubQuestionKey = V1SubQuestionKeys.travel_hours_or_distance,
+        };
+        regularBus.SubQuestions.Add(hoursDistanceToggleBus);
+
+        DisplayRule hoursDisplayRuleBus = new DisplayRule()
+        {
+            SubQuestion = hoursDistanceToggleBus,
+            ValidValues = ["Hours"]
+        };
+
+        DisplayRule distanceDisplayRuleBus = new DisplayRule()
+        {
+            SubQuestion = hoursDistanceToggleBus,
+            ValidValues = ["Distance"]
+        };
+
+        SubQuestion hoursInputBus = new SubQuestion()
+        {
+            Question = "How many hours do you travel per year?",
+            Description = "",
+            QuestionType = QuestionType.intInput,
+            Answer = "",
+            UnitOptions = ["hours"],
+            SelectedUnit = "hours",
+            DefaultMetricUnit = "hours",
+            DefaultImperialUnit = "hours",
+            DisplayRules = [hoursDisplayRuleBus],
+            SubQuestionKey = V1SubQuestionKeys.travel_hours_travelled,
+        };
+        regularBus.SubQuestions.Add(hoursInputBus);
+        regularBus.DisplaySubQuestions.Add(hoursInputBus);
+
+        SubQuestion distanceInputBus = new SubQuestion()
+        {
+            Question = "How much do you travel per year?",
+            Description = "",
+            QuestionType = QuestionType.intInput,
+            Answer = "",
+            UnitOptions = ["km", "mi"],
+            DefaultMetricUnit = "km",
+            DefaultImperialUnit = "mi",
+            DisplayRules = [distanceDisplayRuleBus],
+            SubQuestionKey = V1SubQuestionKeys.travel_distance_travelled,
+        };
+        regularBus.SubQuestions.Add(distanceInputBus);
+        regularBus.DisplaySubQuestions.Add(distanceInputBus);
+
+        question.QuestionOptions.Add(regularBus);
+
+        return question;
     }
 
     public Question CreateCruiseQuestion()
