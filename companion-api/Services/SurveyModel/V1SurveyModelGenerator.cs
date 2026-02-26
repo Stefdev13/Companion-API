@@ -1485,13 +1485,179 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
     //SECTION[epic=Home] - Home
     public void CreateAndAddHomeSurveyCategory(SurveyModel surveyModel)
     {
-        //TODO: Create SurveyCategory
-        //TODO: Create Questions
-        //TODO: Create QuestionOptions
-        //TODO: Create SubQuestions for QuestionOptions
-        //TODO: Create DisplayRules for SubQuestions
+        SurveyCategory home = new SurveyCategory()
+        {
+            CategoryName = "Home",
+            Description = "Electricity usage, heating, cooling, Hot water and cooking",
+            Questions = [],
+        };
 
-        //TODO: Add Home SurveyCategory to surveyModel
+        home.Questions.Add(CreateFlightsQuestion());
+        home.Questions.Add(CreateCarTravelQuestion());
+        home.Questions.Add(CreateTrainTravelQuestion());
+        home.Questions.Add(CreateBusTravelQuestion());
+        home.Questions.Add(CreateCruiseQuestion());
+        home.Questions.Add(CreateFerryQuestion());
+
+        //Add mobility SurveyCategory to surveyModel
+        surveyModel.SurveyCategories.Add(home);
+    }
+
+    public Question CreateElectricityQuestion()
+    {
+        Question question = new Question()
+        {
+            QuestionName = "How much do you use per year and where does it come from?",
+            Description = "Select the electricity sources you use and enter how much you electricity you use from those sources.",
+            Tips = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            QuestionOptions = [],
+            ReusableQuestionOptionsTags = ["home", "electricity"],
+        };
+
+        question.QuestionOptions.Add(createNationalGridQuestionOption());
+        question.QuestionOptions.Add(createRenewableQuestionOption());
+        question.QuestionOptions.Add(createSolarQuestionOption());
+        question.QuestionOptions.Add(createSolarBatteryQuestionOption());
+
+        return question;
+
+        QuestionOption createNationalGridQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "National grid",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion usageSubQuestion = new SubQuestion()
+            {
+                Question = "Annual usage",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["kWh", "GJ"],
+                DefaultMetricUnit = "kWh",
+                DefaultImperialUnit = "kWh",
+                AverageValueRoute = "home/electricity/national-grid",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(usageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(usageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createRenewableQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Renewables",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion usageSubQuestion = new SubQuestion()
+            {
+                Question = "Annual usage",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["kWh", "GJ"],
+                DefaultMetricUnit = "kWh",
+                DefaultImperialUnit = "kWh",
+                AverageValueRoute = "home/electricity/renewables",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(usageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(usageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createSolarQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Solar",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion usageSubQuestion = new SubQuestion()
+            {
+                Question = "Annual usage",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["kWh", "GJ"],
+                DefaultMetricUnit = "kWh",
+                DefaultImperialUnit = "kWh",
+                AverageValueRoute = "home/electricity/solar",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(usageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(usageSubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createSolarBatteryQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Solar + battery",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion usageSubQuestion = new SubQuestion()
+            {
+                Question = "Annual usage",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["kWh", "GJ"],
+                DefaultMetricUnit = "kWh",
+                DefaultImperialUnit = "kWh",
+                AverageValueRoute = "home/electricity/solar-battery",
+                SubQuestionKey = V1SubQuestionKeys.home_annual_usage,
+            };
+            questionOption.SubQuestions.Add(usageSubQuestion);
+            questionOption.DisplaySubQuestions.Add(usageSubQuestion);
+
+            return questionOption;
+        }
+    }
+
+    public Question CreateHeatingQuestion()
+    {
+
+    }
+
+    public Question CreateHotWaterQuestion()
+    {
+
+    }
+
+    public Question CreateCoolingQuestion()
+    {
+
+    }
+
+    public Question CreateCookingQuestion()
+    {
+
     }
     //!SECTION[epic=Home] - Home
 
