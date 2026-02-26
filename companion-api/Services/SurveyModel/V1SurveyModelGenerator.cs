@@ -2955,7 +2955,271 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question createDairyAndEggsQuestion()
     {
+        Question question = new Question()
+        {
+            QuestionName = "How much dairy and eggs do you eat?",
+            Description = "Select the foods you eat and enter how much and how often you eat them.",
+            Tips = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            QuestionOptions = [],
+            ReusableQuestionOptionsTags = ["food", "dairy-eggs"],
+        };
 
+        question.QuestionOptions.Add(createCheeseQuestionOption());
+        question.QuestionOptions.Add(createMilkQuestionOption());
+        question.QuestionOptions.Add(createCreamQuestionOption());
+        question.QuestionOptions.Add(createButterQuestionOption());
+        question.QuestionOptions.Add(createSoymilkQuestionOption());
+        question.QuestionOptions.Add(createEggsQuestionOption());
+
+        return question;
+
+        QuestionOption createCheeseQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Cheese",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/dairy-eggs/cheese",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/dairy-eggs/cheese",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createMilkQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Milk",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["cl", "fl oz"],
+                DefaultMetricUnit = "cl",
+                DefaultImperialUnit = "fl oz",
+                AverageValueRoute = "food/dairy-eggs/milk",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/dairy-eggs/milk",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createCreamQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Cream",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["cl", "fl oz"],
+                DefaultMetricUnit = "cl",
+                DefaultImperialUnit = "fl oz",
+                AverageValueRoute = "food/dairy-eggs/cream",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/dairy-eggs/cream",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createButterQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Butter",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["g", "oz"],
+                DefaultMetricUnit = "g",
+                DefaultImperialUnit = "oz",
+                AverageValueRoute = "food/dairy-eggs/butter",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/dairy-eggs/butter",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createSoymilkQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Soymilk",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["cl", "fl oz"],
+                DefaultMetricUnit = "cl",
+                DefaultImperialUnit = "fl oz",
+                AverageValueRoute = "food/dairy-eggs/soymilk",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/dairy-eggs/soymilk",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
+
+        QuestionOption createEggsQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Eggs",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion portionSizeSubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                UnitOptions = ["eggs", "g", "oz"],
+                DefaultMetricUnit = "eggs",
+                DefaultImperialUnit = "eggs",
+                AverageValueRoute = "food/dairy-eggs/eggs",
+                SubQuestionKey = V1SubQuestionKeys.food_portion_size,
+            };
+            questionOption.SubQuestions.Add(portionSizeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionSizeSubQuestion);
+
+            SubQuestion portionFrequencySubQuestion = new SubQuestion()
+            {
+                Question = "Average portion size",
+                Description = "",
+                QuestionType = QuestionType.doubleInputOrAvg,
+                Answer = "",
+                AverageValueRoute = "food/dairy-eggs/eggs",
+                SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
+            };
+            questionOption.SubQuestions.Add(portionFrequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(portionFrequencySubQuestion);
+
+            return questionOption;
+        }
     }
 
     public Question createFruitsAndVegetablesQuestion()
