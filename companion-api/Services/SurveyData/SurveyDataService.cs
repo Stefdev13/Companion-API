@@ -19,4 +19,9 @@ public class SurveyDataService
     {
         return _surveyDataDictionary.getSurveyDataPoint(route, subQuestionKey, dynamicParams, country, region);
     }
+
+    public List<QuestionOption> generateDynamicQuestionOptions(List<string> dynamicParams, string country, string? region)
+    {
+        throw new NotImplementedException();
+    }
 }

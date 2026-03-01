@@ -158,10 +158,12 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             Question = "Emissions figures",
             Description = "What is your cars emissions rating? In co2e/km of co2e/mi",
             QuestionType = QuestionType.doubleInputOrAvg,
-            UnitOptions = ["co2e/km", "co2e/mi"],
-            DefaultMetricUnit = "co2e/km",
-            DefaultImperialUnit = "co2e/mi",
+            UnitOptions = ["g co2e/km", "g co2e/mi"],
+            DefaultMetricUnit = "g co2e/km",
+            DefaultImperialUnit = "g co2e/mi",
             Answer = "",
+            AverageValueRoute = "mobility/cars",
+            AverageValueParams = [carType, carSize],
             DisplayRules = [manufacturersRatingsDisplayRule],
             SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_co2e_rating,
         };
@@ -231,6 +233,8 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             DefaultMetricUnit = "kWh",
             DefaultImperialUnit = "kWh",
             Answer = "",
+            AverageValueRoute = "mobility/cars",
+            AverageValueParams = [carType, carSize],
             DisplayRules = [electricOrPHEVDisplayRule],
             SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_battery_size,
         };
@@ -371,6 +375,8 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             DefaultMetricUnit = "co2e/km",
             DefaultImperialUnit = "co2e/mi",
             Answer = "",
+            AverageValueRoute = "mobility/motorbikes",
+            AverageValueParams = [motorbikeType, motorbikeSize],
             DisplayRules = [manufacturersRatingsDisplayRule],
             SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_co2e_rating,
         };
@@ -434,6 +440,8 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             DefaultMetricUnit = "kWh",
             DefaultImperialUnit = "kWh",
             Answer = "",
+            AverageValueRoute = "mobility/motorbikes",
+            AverageValueParams = [motorbikeType, motorbikeSize],
             DisplayRules = [electricTypeDisplayRule],
             SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_battery_size,
         };
@@ -552,6 +560,7 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
             DefaultMetricUnit = "Wh",
             DefaultImperialUnit = "Wh",
             Answer = "",
+            AverageValueRoute = "mobility/bikes",
             DisplayRules = [electricTypeDisplayRule],
             SubQuestionKey = V1SubQuestionKeys.mobility_vehicle_battery_size,
         };
