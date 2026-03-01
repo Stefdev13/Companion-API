@@ -6257,7 +6257,419 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
 
     public Question createLargeElectronicsQuestion()
     {
+        Question question = new Question()
+        {
+            QuestionName = "How many large electronics do you buy?",
+            Description = "Please select the kinds of electronics you buy and how many you buy. You can answer in 2 ways: how many electronics you buy per month/year or how often you buy electronics.",
+            Tips = [],
+            AllowCustomOptions = false,
+            AllowReusableQuestionOptions = false,
+            QuestionOptions = [],
+            ReusableQuestionOptionsTags = ["purchasing-habits", "large-electronics"],
+        };
 
+        question.QuestionOptions.Add(createTVQuestionOption());
+        question.QuestionOptions.Add(createLargeSpeakersQuestionOption());
+        question.QuestionOptions.Add(createMediumHouseholdAppliancesQuestionOption());
+        question.QuestionOptions.Add(createLargeHouseholdAppliancesQuestionOption());
+        question.QuestionOptions.Add(createOtherLargeElectronicsQuestionOption());
+
+        return question;
+
+        StandardQuestionOption createTVQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Tv",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion perTimeFrameOrFrequencyToggleSubQuestion = new SubQuestion()
+            {
+                Question = "X per month/year or every x months/years?",
+                Description = "",
+                QuestionType = QuestionType.toggle,
+                Answer = "",
+                AnswerOptions = ["Per month/year", "Every _ months/years"],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_per_timeframe_or_frequency,
+            };
+            questionOption.SubQuestions.Add(perTimeFrameOrFrequencyToggleSubQuestion);
+            questionOption.DisplaySubQuestions.Add(perTimeFrameOrFrequencyToggleSubQuestion);
+
+            DisplayRule perTimeframeDisplayRule = new DisplayRule()
+            {
+                SubQuestion = perTimeFrameOrFrequencyToggleSubQuestion,
+                ValidValues = ["Per month/year"]
+            };
+
+            DisplayRule frequencyDisplayRule = new DisplayRule()
+            {
+                SubQuestion = perTimeFrameOrFrequencyToggleSubQuestion,
+                ValidValues = ["Every _ months/years"]
+            };
+
+            SubQuestion perTimeframeSubQuestion = new SubQuestion()
+            {
+                Question = "How many tv's do you buy per month/year?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["Per year", "Per month"],
+                DefaultMetricUnit = "Per year",
+                DefaultImperialUnit = "Per year",
+                DisplayRules = [perTimeframeDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_items_per_timeframe,
+            };
+            questionOption.SubQuestions.Add(perTimeframeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(perTimeframeSubQuestion);
+
+            SubQuestion frequencySubQuestion = new SubQuestion()
+            {
+                Question = "How often do you buy a tv?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["years", "months"],
+                DefaultMetricUnit = "years",
+                DefaultImperialUnit = "years",
+                DisplayRules = [frequencyDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_items_every_timeframe,
+            };
+            questionOption.SubQuestions.Add(frequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(frequencySubQuestion);
+
+            SubQuestion secondHandSubQuestion = new SubQuestion()
+            {
+                Question = "Second hand tv",
+                Description = "What percentage of the tv's you buy are second hand?",
+                QuestionType = QuestionType.percentage,
+                Answer = "",
+                SubQuestionKey = V1SubQuestionKeys.purchasing_second_hand_percentage,
+            };
+            questionOption.SubQuestions.Add(secondHandSubQuestion);
+            questionOption.DisplaySubQuestions.Add(secondHandSubQuestion);
+
+            return questionOption;
+        }
+
+        StandardQuestionOption createLargeSpeakersQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Large speakers",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion perTimeFrameOrFrequencyToggleSubQuestion = new SubQuestion()
+            {
+                Question = "X per month/year or every x months/years?",
+                Description = "",
+                QuestionType = QuestionType.toggle,
+                Answer = "",
+                AnswerOptions = ["Per month/year", "Every _ months/years"],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_per_timeframe_or_frequency,
+            };
+            questionOption.SubQuestions.Add(perTimeFrameOrFrequencyToggleSubQuestion);
+            questionOption.DisplaySubQuestions.Add(perTimeFrameOrFrequencyToggleSubQuestion);
+
+            DisplayRule perTimeframeDisplayRule = new DisplayRule()
+            {
+                SubQuestion = perTimeFrameOrFrequencyToggleSubQuestion,
+                ValidValues = ["Per month/year"]
+            };
+
+            DisplayRule frequencyDisplayRule = new DisplayRule()
+            {
+                SubQuestion = perTimeFrameOrFrequencyToggleSubQuestion,
+                ValidValues = ["Every _ months/years"]
+            };
+
+            SubQuestion perTimeframeSubQuestion = new SubQuestion()
+            {
+                Question = "How many speakers do you buy per month/year?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["Per year", "Per month"],
+                DefaultMetricUnit = "Per year",
+                DefaultImperialUnit = "Per year",
+                DisplayRules = [perTimeframeDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_items_per_timeframe,
+            };
+            questionOption.SubQuestions.Add(perTimeframeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(perTimeframeSubQuestion);
+
+            SubQuestion frequencySubQuestion = new SubQuestion()
+            {
+                Question = "How often do you buy speakers?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["years", "months"],
+                DefaultMetricUnit = "years",
+                DefaultImperialUnit = "years",
+                DisplayRules = [frequencyDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_items_every_timeframe,
+            };
+            questionOption.SubQuestions.Add(frequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(frequencySubQuestion);
+
+            SubQuestion secondHandSubQuestion = new SubQuestion()
+            {
+                Question = "Second hand speakers",
+                Description = "What percentage of the speakers you buy are second hand?",
+                QuestionType = QuestionType.percentage,
+                Answer = "",
+                SubQuestionKey = V1SubQuestionKeys.purchasing_second_hand_percentage,
+            };
+            questionOption.SubQuestions.Add(secondHandSubQuestion);
+            questionOption.DisplaySubQuestions.Add(secondHandSubQuestion);
+
+            return questionOption;
+        }
+
+        StandardQuestionOption createMediumHouseholdAppliancesQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Medium sized household appliances",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion perTimeFrameOrFrequencyToggleSubQuestion = new SubQuestion()
+            {
+                Question = "X per month/year or every x months/years?",
+                Description = "",
+                QuestionType = QuestionType.toggle,
+                Answer = "",
+                AnswerOptions = ["Per month/year", "Every _ months/years"],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_per_timeframe_or_frequency,
+            };
+            questionOption.SubQuestions.Add(perTimeFrameOrFrequencyToggleSubQuestion);
+            questionOption.DisplaySubQuestions.Add(perTimeFrameOrFrequencyToggleSubQuestion);
+
+            DisplayRule perTimeframeDisplayRule = new DisplayRule()
+            {
+                SubQuestion = perTimeFrameOrFrequencyToggleSubQuestion,
+                ValidValues = ["Per month/year"]
+            };
+
+            DisplayRule frequencyDisplayRule = new DisplayRule()
+            {
+                SubQuestion = perTimeFrameOrFrequencyToggleSubQuestion,
+                ValidValues = ["Every _ months/years"]
+            };
+
+            SubQuestion perTimeframeSubQuestion = new SubQuestion()
+            {
+                Question = "How many appliances do you buy per month/year?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["Per year", "Per month"],
+                DefaultMetricUnit = "Per year",
+                DefaultImperialUnit = "Per year",
+                DisplayRules = [perTimeframeDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_items_per_timeframe,
+            };
+            questionOption.SubQuestions.Add(perTimeframeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(perTimeframeSubQuestion);
+
+            SubQuestion frequencySubQuestion = new SubQuestion()
+            {
+                Question = "How often do you buy an appliance?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["years", "months"],
+                DefaultMetricUnit = "years",
+                DefaultImperialUnit = "years",
+                DisplayRules = [frequencyDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_items_every_timeframe,
+            };
+            questionOption.SubQuestions.Add(frequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(frequencySubQuestion);
+
+            SubQuestion secondHandSubQuestion = new SubQuestion()
+            {
+                Question = "Second hand appliances",
+                Description = "What percentage of the appliances you buy are second hand?",
+                QuestionType = QuestionType.percentage,
+                Answer = "",
+                SubQuestionKey = V1SubQuestionKeys.purchasing_second_hand_percentage,
+            };
+            questionOption.SubQuestions.Add(secondHandSubQuestion);
+            questionOption.DisplaySubQuestions.Add(secondHandSubQuestion);
+
+            return questionOption;
+        }
+
+        StandardQuestionOption createLargeHouseholdAppliancesQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Large household appliances",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion perTimeFrameOrFrequencyToggleSubQuestion = new SubQuestion()
+            {
+                Question = "X per month/year or every x months/years?",
+                Description = "",
+                QuestionType = QuestionType.toggle,
+                Answer = "",
+                AnswerOptions = ["Per month/year", "Every _ months/years"],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_per_timeframe_or_frequency,
+            };
+            questionOption.SubQuestions.Add(perTimeFrameOrFrequencyToggleSubQuestion);
+            questionOption.DisplaySubQuestions.Add(perTimeFrameOrFrequencyToggleSubQuestion);
+
+            DisplayRule perTimeframeDisplayRule = new DisplayRule()
+            {
+                SubQuestion = perTimeFrameOrFrequencyToggleSubQuestion,
+                ValidValues = ["Per month/year"]
+            };
+
+            DisplayRule frequencyDisplayRule = new DisplayRule()
+            {
+                SubQuestion = perTimeFrameOrFrequencyToggleSubQuestion,
+                ValidValues = ["Every _ months/years"]
+            };
+
+            SubQuestion perTimeframeSubQuestion = new SubQuestion()
+            {
+                Question = "How many appliances do you buy per month/year?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["Per year", "Per month"],
+                DefaultMetricUnit = "Per year",
+                DefaultImperialUnit = "Per year",
+                DisplayRules = [perTimeframeDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_items_per_timeframe,
+            };
+            questionOption.SubQuestions.Add(perTimeframeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(perTimeframeSubQuestion);
+
+            SubQuestion frequencySubQuestion = new SubQuestion()
+            {
+                Question = "How often do you buy an appliance?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["years", "months"],
+                DefaultMetricUnit = "years",
+                DefaultImperialUnit = "years",
+                DisplayRules = [frequencyDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_items_every_timeframe,
+            };
+            questionOption.SubQuestions.Add(frequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(frequencySubQuestion);
+
+            SubQuestion secondHandSubQuestion = new SubQuestion()
+            {
+                Question = "Second hand appliances",
+                Description = "What percentage of the appliances you buy are second hand?",
+                QuestionType = QuestionType.percentage,
+                Answer = "",
+                SubQuestionKey = V1SubQuestionKeys.purchasing_second_hand_percentage,
+            };
+            questionOption.SubQuestions.Add(secondHandSubQuestion);
+            questionOption.DisplaySubQuestions.Add(secondHandSubQuestion);
+
+            return questionOption;
+        }
+
+        StandardQuestionOption createOtherLargeElectronicsQuestionOption()
+        {
+            StandardQuestionOption questionOption = new StandardQuestionOption
+            {
+                Name = "Other large electronics",
+                Tags = [],
+                IsSelected = false,
+                SubQuestions = [],
+                DisplaySubQuestions = [],
+            };
+
+            SubQuestion perTimeFrameOrFrequencyToggleSubQuestion = new SubQuestion()
+            {
+                Question = "X per month/year or every x months/years?",
+                Description = "",
+                QuestionType = QuestionType.toggle,
+                Answer = "",
+                AnswerOptions = ["Per month/year", "Every _ months/years"],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_per_timeframe_or_frequency,
+            };
+            questionOption.SubQuestions.Add(perTimeFrameOrFrequencyToggleSubQuestion);
+            questionOption.DisplaySubQuestions.Add(perTimeFrameOrFrequencyToggleSubQuestion);
+
+            DisplayRule perTimeframeDisplayRule = new DisplayRule()
+            {
+                SubQuestion = perTimeFrameOrFrequencyToggleSubQuestion,
+                ValidValues = ["Per month/year"]
+            };
+
+            DisplayRule frequencyDisplayRule = new DisplayRule()
+            {
+                SubQuestion = perTimeFrameOrFrequencyToggleSubQuestion,
+                ValidValues = ["Every _ months/years"]
+            };
+
+            SubQuestion perTimeframeSubQuestion = new SubQuestion()
+            {
+                Question = "How many items do you buy per month/year?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["Per year", "Per month"],
+                DefaultMetricUnit = "Per year",
+                DefaultImperialUnit = "Per year",
+                DisplayRules = [perTimeframeDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_items_per_timeframe,
+            };
+            questionOption.SubQuestions.Add(perTimeframeSubQuestion);
+            questionOption.DisplaySubQuestions.Add(perTimeframeSubQuestion);
+
+            SubQuestion frequencySubQuestion = new SubQuestion()
+            {
+                Question = "How often do you buy an item?",
+                Description = "",
+                QuestionType = QuestionType.intInput,
+                Answer = "",
+                UnitOptions = ["years", "months"],
+                DefaultMetricUnit = "years",
+                DefaultImperialUnit = "years",
+                DisplayRules = [frequencyDisplayRule],
+                SubQuestionKey = V1SubQuestionKeys.purchasing_items_every_timeframe,
+            };
+            questionOption.SubQuestions.Add(frequencySubQuestion);
+            questionOption.DisplaySubQuestions.Add(frequencySubQuestion);
+
+            SubQuestion secondHandSubQuestion = new SubQuestion()
+            {
+                Question = "Second hand items",
+                Description = "What percentage of the items you buy are second hand?",
+                QuestionType = QuestionType.percentage,
+                Answer = "",
+                SubQuestionKey = V1SubQuestionKeys.purchasing_second_hand_percentage,
+            };
+            questionOption.SubQuestions.Add(secondHandSubQuestion);
+            questionOption.DisplaySubQuestions.Add(secondHandSubQuestion);
+
+            return questionOption;
+        }
     }
     //!SECTION[epic=Purchasing habits] - Purchasing habits
 }
