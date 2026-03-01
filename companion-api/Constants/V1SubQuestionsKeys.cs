@@ -21,4 +21,9 @@ public static class V1SubQuestionKeys
     public static readonly string home_annual_usage = "annual_usage";
     public static readonly string food_portion_size = "portion_size";
     public static readonly string food_weekly_frequency = "weekly_frequency";
+    public static readonly string purchasing_per_timeframe_or_frequency = "per_timeframe_or_frequency";
+    public static readonly string purchasing_items_per_timeframe = "items_per_timeframe";
+    public static readonly string purchasing_items_every_timeframe = "items_every_timeframe";
+    public static readonly string purchasing_second_hand_percentage = "second_hand_percentage";
+
 }
