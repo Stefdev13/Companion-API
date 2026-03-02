@@ -2582,7 +2582,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/meat-fish-tofu/beef",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -2623,7 +2622,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/meat-fish-tofu/lamb-mutton",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -2664,7 +2662,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/meat-fish-tofu/pork",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -2705,7 +2702,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/meat-fish-tofu/poultry",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -2746,7 +2742,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/meat-fish-tofu/shellfish-farmed",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -2787,7 +2782,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/meat-fish-tofu/shellfish-wild",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -2828,7 +2822,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/meat-fish-tofu/fish-farmed",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -2869,7 +2862,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/meat-fish-tofu/fish-wild",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -2910,7 +2902,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/meat-fish-tofu/tofu",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -2951,7 +2942,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/meat-fish-tofu/seitan",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3015,7 +3005,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/dairy-eggs/cheese",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3056,7 +3045,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/dairy-eggs/milk",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3097,7 +3085,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/dairy-eggs/cream",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3138,7 +3125,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/dairy-eggs/butter",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3179,7 +3165,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/dairy-eggs/soymilk",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3220,7 +3205,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/dairy-eggs/eggs",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3290,7 +3274,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/fruit-vegetables/citrus",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3331,7 +3314,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/fruit-vegetables/berries-grapes",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3372,7 +3354,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/fruit-vegetables/bananas",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3413,7 +3394,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/fruit-vegetables/other-fruit",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3454,7 +3434,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/fruit-vegetables/pulses",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3495,7 +3474,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/fruit-vegetables/peas",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3536,7 +3514,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/fruit-vegetables/potatoes",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3577,7 +3554,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/fruit-vegetables/unions-leeks",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3618,7 +3594,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/fruit-vegetables/root-vegetables",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3659,7 +3634,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/fruit-vegetables/tomatoes",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3700,7 +3674,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/fruit-vegetables/corn",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3741,7 +3714,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/fruit-vegetables/other-vegetables",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3805,7 +3777,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/grain-products/rice",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3846,7 +3817,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/grain-products/pasta",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3887,7 +3857,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/grain-products/bread",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3928,7 +3897,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/grain-products/oatmeal",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -3969,7 +3937,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/grain-products/cereals",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -4010,7 +3977,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/grain-products/other-grain-products",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -4077,7 +4043,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/other-foods/chocolate",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -4118,7 +4083,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/other-foods/coffee",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -4159,7 +4123,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/other-foods/peanuts",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -4200,7 +4163,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/other-foods/other-nuts",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -4241,7 +4203,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/other-foods/olive-oil",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -4282,7 +4243,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/other-foods/other-oil",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -4323,7 +4283,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/other-foods/wine",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -4364,7 +4323,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/other-foods/beer",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);
@@ -4405,7 +4363,6 @@ public class V1SurveyModelGenerator : ISurveyModelGenerator
                 Description = "",
                 QuestionType = QuestionType.doubleInputOrAvg,
                 Answer = "",
-                AverageValueRoute = "food/other-foods/sugar",
                 SubQuestionKey = V1SubQuestionKeys.food_weekly_frequency,
             };
             questionOption.SubQuestions.Add(portionFrequencySubQuestion);

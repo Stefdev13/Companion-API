@@ -62,13 +62,50 @@ public class V1SurveyDataDictionary : ISurveyDataDictionary
         }},
         //E-Bike battery size
         { $"mobility/bikes/{V1SubQuestionKeys.mobility_vehicle_battery_size}", "0.65"},
-        //TODO - Average values:
-        //Food portion size & portions/week:
-        //  Meat, fish & tofu
-        //  Dairy & eggs
-        //  Fruits & vegetables
-        //  Grain products
-        //  Other foods
+        //Food portion size
+        { $"food/meat-fish-tofu/beef/{V1SubQuestionKeys.food_portion_size}", "0.15"},
+        { $"food/meat-fish-tofu/lamb-mutton/{V1SubQuestionKeys.food_portion_size}", "0.15"},
+        { $"food/meat-fish-tofu/pork/{V1SubQuestionKeys.food_portion_size}", "0.15"},
+        { $"food/meat-fish-tofu/poultry/{V1SubQuestionKeys.food_portion_size}", "0.15"},
+        { $"food/meat-fish-tofu/shellfish-farmed/{V1SubQuestionKeys.food_portion_size}", "0.15"},
+        { $"food/meat-fish-tofu/shellfish-wild/{V1SubQuestionKeys.food_portion_size}", "0.15"},
+        { $"food/meat-fish-tofu/fish-farmed/{V1SubQuestionKeys.food_portion_size}", "0.15"},
+        { $"food/meat-fish-tofu/fish-wild/{V1SubQuestionKeys.food_portion_size}", "0.15"},
+        { $"food/meat-fish-tofu/tofu/{V1SubQuestionKeys.food_portion_size}", "0.15"},
+        { $"food/meat-fish-tofu/seitan/{V1SubQuestionKeys.food_portion_size}", "0.15"},
+        { $"food/meat-fish-tofu/seitan/{V1SubQuestionKeys.food_portion_size}", "0.15"},
+        { $"food/dairy-eggs/cheese/{V1SubQuestionKeys.food_portion_size}", "0.15"},
+        { $"food/dairy-eggs/milk/{V1SubQuestionKeys.food_portion_size}", "0.25"},
+        { $"food/dairy-eggs/cream/{V1SubQuestionKeys.food_portion_size}", "0.1"},
+        { $"food/dairy-eggs/butter/{V1SubQuestionKeys.food_portion_size}", "0.01"},
+        { $"food/dairy-eggs/soymilk/{V1SubQuestionKeys.food_portion_size}", "0.25"},
+        { $"food/dairy-eggs/eggs/{V1SubQuestionKeys.food_portion_size}", "2"},
+        { $"food/fruits-vegetables/citrus-fruits/{V1SubQuestionKeys.food_portion_size}", "1"},
+        { $"food/fruits-vegetables/berries-grapes/{V1SubQuestionKeys.food_portion_size}", "100"},
+        { $"food/fruits-vegetables/bananas/{V1SubQuestionKeys.food_portion_size}", "1"},
+        { $"food/fruits-vegetables/other-fruit/{V1SubQuestionKeys.food_portion_size}", "100"},
+        { $"food/fruits-vegetables/pulses/{V1SubQuestionKeys.food_portion_size}", "100"},
+        { $"food/fruits-vegetables/peas/{V1SubQuestionKeys.food_portion_size}", "100"},
+        { $"food/fruits-vegetables/potatoes/{V1SubQuestionKeys.food_portion_size}", "200"},
+        { $"food/fruits-vegetables/unions-leeks/{V1SubQuestionKeys.food_portion_size}", "50"},
+        { $"food/fruits-vegetables/root-vegetables/{V1SubQuestionKeys.food_portion_size}", "200"},
+        { $"food/fruits-vegetables/tomatoes/{V1SubQuestionKeys.food_portion_size}", "100"},
+        { $"food/fruits-vegetables/corn/{V1SubQuestionKeys.food_portion_size}", "100"},
+        { $"food/fruits-vegetables/other-vegetables/{V1SubQuestionKeys.food_portion_size}", "100"},
+        { $"food/grain-products/rice/{V1SubQuestionKeys.food_portion_size}", "80"},
+        { $"food/grain-products/pasta/{V1SubQuestionKeys.food_portion_size}", "80"},
+        { $"food/grain-products/bread/{V1SubQuestionKeys.food_portion_size}", "100"},
+        { $"food/grain-products/oatmeal/{V1SubQuestionKeys.food_portion_size}", "50"},
+        { $"food/grain-products/cereals/{V1SubQuestionKeys.food_portion_size}", "50"},
+        { $"food/other-foods/chocolate/{V1SubQuestionKeys.food_portion_size}", "50"},
+        { $"food/other-foods/coffee/{V1SubQuestionKeys.food_portion_size}", "250"},
+        { $"food/other-foods/groundnuts/{V1SubQuestionKeys.food_portion_size}", "30"},
+        { $"food/other-foods/other-nuts/{V1SubQuestionKeys.food_portion_size}", "30"},
+        { $"food/other-foods/olive-oil/{V1SubQuestionKeys.food_portion_size}", "10"},
+        { $"food/other-foods/other-oil/{V1SubQuestionKeys.food_portion_size}", "10"},
+        { $"food/other-foods/wine/{V1SubQuestionKeys.food_portion_size}", "150"},
+        { $"food/other-foods/beer/{V1SubQuestionKeys.food_portion_size}", "250"},
+        { $"food/other-foods/sugar/{V1SubQuestionKeys.food_portion_size}", "10"},
 
         //TODO - Dynamic QuestionOptions:
         //Bus QuestionOptions

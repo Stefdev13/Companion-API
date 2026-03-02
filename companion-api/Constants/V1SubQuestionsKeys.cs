@@ -25,5 +25,4 @@ public static class V1SubQuestionKeys
     public static readonly string purchasing_items_per_timeframe = "items_per_timeframe";
     public static readonly string purchasing_items_every_timeframe = "items_every_timeframe";
     public static readonly string purchasing_second_hand_percentage = "second_hand_percentage";
-
 }
