@@ -6,7 +6,7 @@ public class V1SurveyDataDictionary : ISurveyDataDictionary
         throw new NotImplementedException();
     }
 
-    public Dictionary<string, object> getSurveyDataPoint(string route, string subQuestionKey, string dynamicParams, string country, string? region)
+    public Dictionary<string, object> getSurveyDataPoint(string route, string subQuestionKey, List<string> dynamicParams, string country, string? region)
     {
         throw new NotImplementedException();
     }

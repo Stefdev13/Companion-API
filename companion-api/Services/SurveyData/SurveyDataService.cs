@@ -15,12 +15,12 @@ public class SurveyDataService
         }
     }
 
-    public Dictionary<string, object> getSurveyDataPoint(string route, string subQuestionKey, string dynamicParams, string country, string? region)
+    public Dictionary<string, object> getSurveyDataPoint(string route, string subQuestionKey, List<string>? dynamicParams, string? country, string? region)
     {
         return _surveyDataDictionary.getSurveyDataPoint(route, subQuestionKey, dynamicParams, country, region);
     }
 
-    public List<QuestionOption> generateDynamicQuestionOptions(List<string> dynamicParams, string country, string? region)
+    public List<QuestionOption> generateDynamicQuestionOptions(string route, List<string>? dynamicParams, string? country, string? region)
     {
         throw new NotImplementedException();
     }

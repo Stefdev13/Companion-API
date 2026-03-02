@@ -2,7 +2,7 @@ public interface ISurveyDataDictionary
 {
     public static Dictionary<string, object> SurveyData { get; set; }
 
-    public Dictionary<string, object> getSurveyDataPoint(string route, string subQuestionKey, string dynamicParams, string country, string? region);
+    public Dictionary<string, object> getSurveyDataPoint(string route, string subQuestionKey, List<string>? dynamicParams, string? country, string? region);
     public List<string> getSurveyDataKeys(string route, string subQuestionKey, string dynamicParams, string country, string? region);
     public List<QuestionOption> generateDynamicQuestionOptions(List<string> dynamicParams, string country, string? region);
 }
