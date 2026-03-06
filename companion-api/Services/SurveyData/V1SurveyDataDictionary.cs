@@ -6,14 +6,39 @@ public class V1SurveyDataDictionary : ISurveyDataDictionary
         throw new NotImplementedException();
     }
 
-    public Dictionary<string, object> getSurveyDataPoint(string route, string subQuestionKey, List<string> dynamicParams, string country, string? region)
+    public Dictionary<string, string>? getSurveyDataPoint(string route, string subQuestionKey, List<string>? dynamicParams, string? country, string? region)
     {
-        throw new NotImplementedException();
+        string dynamicParamsAsString = dynamicParams != null && dynamicParams.Count > 0 ? $"/{string.Join("/", dynamicParams)}" : "";
+
+        string countryAndRegion = "";
+
+        if (country != null)
+        {
+            countryAndRegion = country != null ? $"/{country}" : "";
+            if (region != null)
+            {
+                countryAndRegion.Concat($"-{region}");
+            }
+        }
+
+        Dictionary<string, string>? result;
+        AverageValueSurveyData.TryGetValue($"{route}/{subQuestionKey}{dynamicParamsAsString}{countryAndRegion}", out result);
+
+        return result;
     }
 
-    public List<QuestionOption> generateDynamicQuestionOptions(List<string> dynamicParams, string country, string? region)
+    public List<string> generateDynamicQuestionOptions(List<string> dynamicParams, string country, string? region)
     {
-        throw new NotImplementedException();
+        string location = country + region ?? "";
+
+        List<string>? result = null;
+
+        if (DynamicQuestionOptions.TryGetValue($"{string.Join("/", dynamicParams)}", out var innerDict))
+        {
+            innerDict.TryGetValue(location, out result);
+        }
+
+        return result ?? [];
     }
 
     public static readonly Dictionary<string, Dictionary<string, string>> AverageValueSurveyData = new Dictionary<string, Dictionary<string, string>>()
