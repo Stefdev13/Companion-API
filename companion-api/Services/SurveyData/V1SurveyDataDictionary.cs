@@ -26,11 +26,21 @@ public class V1SurveyDataDictionary : ISurveyDataDictionary
     {
         string location = country + (region != null ? $"-{region}" : "");
 
+
         List<string>? result = null;
 
         if (DynamicQuestionOptions.TryGetValue($"{string.Join("/", dynamicParams)}", out var innerDict))
         {
             innerDict.TryGetValue(location, out result);
+        }
+
+        //If we couldn't find a result for a location with a country and a region, then we should try the backup with just the country
+        if (result == null && region != null)
+        {
+            if (DynamicQuestionOptions.TryGetValue($"{string.Join("/", dynamicParams)}", out var backupInnerDict))
+            {
+                backupInnerDict.TryGetValue(location, out result);
+            }
         }
 
         return result ?? [];
