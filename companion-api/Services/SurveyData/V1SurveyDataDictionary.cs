@@ -1,14 +1,9 @@
 
 public class V1SurveyDataDictionary : ISurveyDataDictionary
 {
-    public List<string> getSurveyDataKeys(string route, string subQuestionKey, string dynamicParams, string country, string? region)
-    {
-        throw new NotImplementedException();
-    }
-
     public Dictionary<string, string>? getSurveyDataPoint(string route, string subQuestionKey, List<string>? dynamicParams, string? country, string? region)
     {
-        string dynamicParamsAsString = dynamicParams != null && dynamicParams.Count > 0 ? $"/{string.Join("/", dynamicParams)}" : "";
+        string dynamicParamsAsString = dynamicParams != null && dynamicParams.Count > 0 ? $"/{string.Join("-", dynamicParams)}" : "";
 
         string countryAndRegion = "";
 
@@ -29,7 +24,7 @@ public class V1SurveyDataDictionary : ISurveyDataDictionary
 
     public List<string> generateDynamicQuestionOptions(List<string> dynamicParams, string country, string? region)
     {
-        string location = country + region ?? "";
+        string location = country + (region != null ? $"-{region}" : "");
 
         List<string>? result = null;
 

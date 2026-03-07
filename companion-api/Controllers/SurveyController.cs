@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 [Route("[controller]")]
 public class SurveyController : ControllerBase
 {
-    [HttpPost("generate/{version}")]
+    [HttpPost("generate")]
     public IActionResult GenerateSurveyModel([FromBody] GenerateSurveyModelRequest request)
     {
         SurveyModelTemplateGenerator templateGenerator = new SurveyModelTemplateGenerator(request.version);
@@ -20,15 +20,15 @@ public class SurveyController : ControllerBase
         }
     }
 
-    [HttpGet("averagevalue/{version}")]
-    public IActionResult GetAverageValue([FromBody] GetAverageValueDTO request)
+    [HttpGet("averagevalue")]
+    public IActionResult GetAverageValue([FromQuery] GetAverageValueDTO request)
     {
         SurveyDataService dataService = new SurveyDataService(request.version);
 
         try
         {
-            Dictionary<string, object> dataPoint = dataService.getSurveyDataPoint(request.route, request.subQuestionKey, request.dynamicParams, request.country, request.region);
-            return Ok(dataPoint);
+            Dictionary<string, string>? dataPoint = dataService.getSurveyDataPoint(request.route, request.subQuestionKey, request.dynamicParams, request.country, request.region);
+            return dataPoint != null ? Ok(dataPoint) : Problem();
         }
         catch
         {
@@ -36,14 +36,14 @@ public class SurveyController : ControllerBase
         }
     }
 
-    [HttpGet("dynamicquestionoptions/{version}")]
-    public IActionResult GetDynamicQuestionOptions([FromBody] GetDynamicQuestionOptionsDTO request)
+    [HttpGet("dynamicquestionoptions/")]
+    public IActionResult GetDynamicQuestionOptions([FromQuery] GetDynamicQuestionOptionsDTO request)
     {
         SurveyDataService dataService = new SurveyDataService(request.version);
 
         try
         {
-            List<QuestionOption> questionOptions = dataService.generateDynamicQuestionOptions(request.route, request.dynamicParams, request.country, request.region);
+            List<string> questionOptions = dataService.generateDynamicQuestionOptions(request.dynamicParams, request.country, request.region);
             return Ok(questionOptions);
         }
         catch
